@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script type="text/javascript">
+			function loadBody() {
+				div2.innerHTML = "This is div2";
+			}
+			div3.innerHTML = "This is div3";	//Không bao giờ thực hiện, vì lệnh này ko gán với sự kiện nào cả
+			function showInput() {
+				var name = prompt("Enter your name");
+				document.getElementById("div1").innerHTML = "Hello " + name;
+			}
+		</script>
+	</head>
+	<body onload="loadBody()">
+		<button onclick="showInput()">Show input</button>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script>
+			//switch case
+			var diem = "G";
+			switch (diem) {
+				case "Y":
+					document.write("Yếu");
+					break;
+				case "TB":
+					document.write("Trung bình");
+					break;
+				case "K":
+					document.write("Khá");
+					break;
+				case "G" :
+					document.write("Giỏi");
+					break;
+				default:
+					document.write("Xuất sắc")
+			}
+			document.write("<br/>");
+			
+			//////if else
+			if(4 > 3) document.write("4 greater than 3<br/>");
+			else document.write("4 lesser than 3<br/>");
+			
+			///array
+			var myarray = new Array();
+			for (i = 0; i < 10; i++) {
+				myarray[i] = i;
+			}
+			for (i = 0; i < 10; i++) {
+				document.write(myarray[i]+"<br/>");
+			}
+			
+			///while, do
+			var i = 9, total = 0;
+			do {
+				total += i * 3 + 5;
+				i = i + 5;
+			} while (i < 20);
+			document.write(total+ '<br/>');
+			
+			//redefine write method
+			function println(something) {
+				document.write(something + "<br/>");
+			}
+			
+			println("My name is Anhtu");
+			println("How are you doing today?");
+			
+			//Hộp thông báo: Sử dụng các phương thức: confirm, alert, prompt
+			alert("today is great!");
+			
+			cf = confirm("Alo! Do you like Javascript?");
+			println("cf = " + cf);
+			if(cf == true) println("You're awesome!");
+			else println("What a pity! What a shame! You didn't want me! :'(")
+			
+			value = prompt("What kind of food do you like?");
+			println("So you like " + value + ". Is that right?");
+			println("Is " + value + " ubiquitous in your country?");
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

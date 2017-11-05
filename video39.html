@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<script>
+			function cl(str) {
+				console.log(str);
+			}
+			var jsonStr = '{"name":"Anh tu ta", "age":23, "university":"HUST"}';
+			var jsonObj = JSON.parse(jsonStr);
+			cl(jsonObj.name);
+			cl(jsonObj.age);
+			cl(jsonObj.university);
+			
+			jsonObj.name = "Anhtu95";
+			var jsonStr2 = JSON.stringify(jsonObj);
+			cl("jsonStr2 = " + jsonStr2);
+			
+			var jsonStr3 = '{ "name":"Anh tu ta", "age":23, "university":"HUST", "favorite_fruits":["apple", "guave", "plum", "mango", "strawberry"],"more_info":{"address":"Hanoi", "phone":"0982329823", "email":"taanhtu95@gmail.com"}}';
+			var jsonObj3 = JSON.parse(jsonStr3);
+			cl(jsonObj3.university);
+			cl(jsonObj3.favorite_fruits);
+			cl(jsonObj3.favorite_fruits[3]);
+			cl(jsonObj3.more_info.email);
+			jsonStr2 = JSON.stringify(jsonObj3);
+			cl("jsonStr2 = " + jsonStr2);
+		</script>
+	</head>
+	<body>
+		<h2>Bắt đầu với lập trình hướng đối tượng (OOP) trong Javasript</h2>
+		<h3>JSON demo</h3>
+	</body>
+</html>

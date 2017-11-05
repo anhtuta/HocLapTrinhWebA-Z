@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#d1 {
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+				color: white;
+				padding: 10px;
+			}
+			#d2 {
+				width: 300px;
+				height: 150px;
+				background-color: blue;
+				color: white;
+				padding: 10px;
+			}
+		</style>
+		<script>
+			var d1Text, d2Text;
+			function cl(str) {
+				console.log(str);
+			}
+			function bodyLoaded() {
+				var tagDiv1 = document.getElementById("d1");
+				var tagDiv2 = document.getElementById("d2");
+				d1Text = tagDiv1.innerHTML;
+				d2Text = tagDiv2.innerHTML;
+				
+				tagDiv1.onclick = onClickDiv1;
+				tagDiv1.onmouseover = onMouseOverDiv1;
+				tagDiv1.onmouseout = onMouseOutDiv1;
+				tagDiv1.onmouseenter = function() {
+					tagDiv1.innerHTML = d1Text + "<br/>Mouse enter"; 
+				}
+				
+				tagDiv2.onmouseleave = function() {
+					tagDiv2.innerHTML = d2Text + "<br/>Mouse leave div2";
+				}
+			}
+			function onClickDiv1() {
+				var tagDiv1 = document.getElementById("d1");
+				tagDiv1.style.backgroundColor = "cyan";
+				tagDiv1.innerHTML = d1Text + "<br/>Current seconds: " + (new Date()).getSeconds();
+			}
+			function onMouseOverDiv1() {
+				var tagDiv1 = document.getElementById("d1");
+				tagDiv1.setAttribute("style", "background-color: green");
+			}
+			function onMouseOutDiv1() {
+				var tagDiv1 = document.getElementById("d1");
+				tagDiv1.setAttribute("style", "background-color: blue");
+			}
+			function onMouseEnterDiv2() {
+				var tagDiv2 = document.getElementById("d2");
+				tagDiv2.innerHTML = d2Text + "<br/>Mouse enter div2";
+			}
+		</script>
+	</head>
+	<body onload="bodyLoaded()">
+		<h2>Bắt đầu với lập trình hướng đối tượng (OOP) trong Javasript</h2>
+		<div id="d1"><b>Hibernate framework</b> là một giải pháp ORM (Object Relational Mapping) mã nguồn mở, gọn nhẹ. 
+		<b>Hibernate</b> giúp đơn giản hoá sự phát triển của ứng dụng java để tương tác với cơ sở dữ liệu.</div>
+		
+		<div id="d2" onmouseenter="onMouseEnterDiv2()">Tool ORM giúp đơn giản hoá việc tạo ra dữ liệu, thao tác dữ liệu và truy 
+		cập dữ liệu. Đó là một kỹ thuật lập trình để ánh xạ đối tượng vào dữ liệu được lưu trữ trong cơ sở dữ liệu.</div>
+	</body>
+</html>

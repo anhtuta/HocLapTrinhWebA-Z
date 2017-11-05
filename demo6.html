@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function showInfo() {
+				var tagName = document.getElementById("txtName");
+				var tagAge = document.getElementById("txtAge");
+				info = tagName.value + " - " + tagAge.value;
+				alert(info);
+			}
+		</script>
+	</head>
+	<body>
+		Enter name <input type="text" value="Anhtu" id="txtName"/>
+		Enter age <input type="text" value="23" id="txtAge"/>
+		<div style="width: 80px; padding: 5px; background-color: #069;
+		cursor: pointer; color:#fff" onclick="showInfo()">
+			Begin!
+		</div>
+	</body>
+</html>

@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#btnChangeImage, #btnChangeSize, #btnDefaultSize, #btnChangeBorder {
+				width: 100px;
+				background-color: blue;
+				color: white;
+				padding: 10px;
+				text-align: center;
+				cursor:progress;
+				margin-bottom: 5px;
+			}
+			#btnChangeSize, #btnDefaultSize {
+				float: left;
+				margin-right: 5px;
+			}
+			.w1 {
+				width: 200px;
+			}
+			.w2 {
+				width: 300px;
+			}
+			.w3 {
+				width: 500px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				var r = Math.floor((Math.random() * 255) + 1);
+				var g = Math.floor((Math.random() * 255) + 1);
+				var b = Math.floor((Math.random() * 255) + 1);
+				
+				var colorStr = "rgb("+r+","+g+","+b+")";
+				
+				var btChangeImage = document.getElementById("btnChangeImage");
+				btChangeImage.style.backgroundColor = colorStr;
+				btChangeImage.onclick = changeImage;
+				
+				var btChangeSize = document.getElementById("btnChangeSize");
+				btChangeSize.onclick = changeSize;
+				
+				var btDefaultSize = document.getElementById("btnDefaultSize");
+				btDefaultSize.onclick = defaultSize;
+				
+				var btChangeBorder = document.getElementById("btnChangeBorder");
+				btChangeBorder.onclick = changeBorder;
+			});
+			
+			var currImg = 1;
+			function changeImage() {
+				if(currImg==1) {
+					$("#myphoto").attr("src", "hinh2.png");
+					currImg = 2;
+				} else {
+					$("#myphoto").attr("src", "hinh1.jpg");
+					currImg = 1;
+				}
+			}
+			
+			var currSize = 0;
+			function changeSize() {
+				if(currSize == 0) {
+					$("#myphoto").addClass("w1");
+					currSize = 1;
+				} else if(currSize == 1) {
+					$("#myphoto").addClass("w2");
+					currSize = 2;
+				} else if(currSize == 2) {
+					$("#myphoto").addClass("w3");
+					currSize = 3;
+				} else {
+					$("#myphoto").removeClass("w2").removeClass("w3");
+					currSize = 1;
+				}
+			}
+			
+			function defaultSize() {
+				$("#myphoto").removeClass("w1").removeClass("w2").removeClass("w3");
+				currSize = 0;
+			}
+			
+			function changeBorder() {
+				var r = Math.floor((Math.random() * 255) + 1);
+				var g = Math.floor((Math.random() * 255) + 1);
+				var b = Math.floor((Math.random() * 255) + 1);
+				
+				var colorStr = "rgb("+r+","+g+","+b+")";
+				
+				$("#myphoto").css("border", "15px solid " + colorStr);
+			}
+		</script>
+	</head>
+	<body>
+		<h2>Bắt đầu với JQuery</h2>
+		<div id="btnChangeImage">Change photo</div>
+		<div id="btnChangeSize">Change size</div>
+		<div id="btnDefaultSize">Default size</div>
+		<div style="clear: both;"></div>
+		<div id="btnChangeBorder">Change border</div>
+		
+		<img id="myphoto" src="hinh1.jpg" />
+	</body>
+</html>
