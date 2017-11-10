@@ -34,9 +34,8 @@
 				var b = Math.floor((Math.random() * 255) + 1);
 				
 				var colorStr = "rgb("+r+","+g+","+b+")";
-				
 				var btChangeImage = document.getElementById("btnChangeImage");
-				btChangeImage.style.backgroundColor = colorStr;
+				btChangeImage.style.backgroundColor = colorStr;		//cho màu của btnChangeImage là màu ngẫu nhiên
 				btChangeImage.onclick = changeImage;
 				
 				var btChangeSize = document.getElementById("btnChangeSize");
@@ -63,16 +62,20 @@
 			var currSize = 0;
 			function changeSize() {
 				if(currSize == 0) {
-					$("#myphoto").addClass("w1");
+					//$("#myphoto").addClass("w1");
+					$("#myphoto").attr("class", "w1");
 					currSize = 1;
 				} else if(currSize == 1) {
-					$("#myphoto").addClass("w2");
+					//$("#myphoto").addClass("w2");
+					$("#myphoto").attr("class", "w2");
 					currSize = 2;
 				} else if(currSize == 2) {
-					$("#myphoto").addClass("w3");
+					//$("#myphoto").addClass("w3");
+					$("#myphoto").attr("class", "w3");
 					currSize = 3;
 				} else {
-					$("#myphoto").removeClass("w2").removeClass("w3");
+					//myphoto").removeClass("w2").removeClass("w3");
+					$("#myphoto").attr("class", "w1");
 					currSize = 1;
 				}
 			}

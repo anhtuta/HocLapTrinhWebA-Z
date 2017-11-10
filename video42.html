@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#btnReadD1Content, #btnChangeD1Content, #btnReadD1Text, 
+			#btnChangeD1Text, #btnAppendLast, #btnAppendFirst,
+			#btnInsertAfterD3, #btnInsertBeforeD3,
+			#btnEmptyD4, #btnRemoveD4, #btnUnwrapD4, #btnReplaceD4 {
+				width: 100px;
+				background-color: blue;
+				color: white;
+				padding: 10px;
+				text-align: center;
+				cursor:pointer;
+				margin-bottom: 5px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				var r = Math.floor((Math.random() * 255) + 1);
+				var g = Math.floor((Math.random() * 255) + 1);
+				var b = Math.floor((Math.random() * 255) + 1);
+				
+				var colorStr = "rgb("+r+","+g+","+b+")";
+				var btReadD1Content = document.getElementById("btnReadD1Content");
+				btReadD1Content.style.backgroundColor = colorStr;
+				btReadD1Content.onclick = alertD1Content;
+				
+				var btChangeD1Content = document.getElementById("btnChangeD1Content");
+				btChangeD1Content.onclick = changeD1Content;
+				
+				var btReadD1Text = document.getElementById("btnReadD1Text");
+				btReadD1Text.onclick = alertD1Text;
+				
+				var btChangeD1Text = document.getElementById("btnChangeD1Text");
+				btChangeD1Text.onclick = changeD1Text;
+				
+				//2.
+				// Gán sự kiện trực tiếp cho div ở đây, ko cần khai báo hàm khác nữa
+				document.getElementById("btnAppendLast").onclick = function () {
+					$("#d2").append(". <span style=\"color: blue\">Đây là <i>nội dung mới</i> được chèn vào <b>cuối</b> thẻ d2</span>");
+				}
+				document.getElementById("btnAppendFirst").onclick = function () {
+					$("#d2").prepend("<span style=\"color: red;\"><i>Nội dung mới</i> này được chèn vào <b>đầu</b> thẻ d2.</span> ");
+				}
+				
+				//3.
+				document.getElementById("btnInsertAfterD3").onclick = function() {
+					$("#d3").after("<div style=\"color: red;\">Đây là thẻ mới đc chèn đằng sau d3</div>");
+				}
+				document.getElementById("btnInsertBeforeD3").onclick = function() {
+					$("#d3").before("<div style=\"color: blue;\">Đây là thẻ mới đc chèn phía trước d3</div>");
+				}
+				
+				//4.
+				document.getElementById("btnEmptyD4").onclick = function() {
+					$("#d4").empty();
+				}
+				document.getElementById("btnRemoveD4").onclick = function() {
+					$("#d4").remove();
+				}
+				document.getElementById("btnUnwrapD4").onclick = function() {
+					$("#d4").unwrap();
+				}
+				document.getElementById("btnReplaceD4").onclick = function() {
+					$("#d4").replaceWith("<span style=\"background: pink;\">Đây là thẻ span thay thế cho thẻ div d4</span>")
+				}
+				
+			});
+			
+			function alertD1Content() {
+				var ND = $("#d1").html();
+				alert(ND);
+			}
+			
+			function changeD1Content() {
+				$("#d1").html("Đây là <b>nội dung mới</b> của <i>thẻ #d1</i>")
+			}
+			
+			function alertD1Text() {
+				var ND = $("#d1").text();
+				alert(ND);
+			}
+			
+			function changeD1Text() {
+				$("#d1").text("Đây là <b>nội dung mới</b> của <i>thẻ #d1</i>")
+			}
+		</script>
+	</head>
+	<body>
+		<h2>Bắt đầu với JQuery</h2>
+		<h3>1. Đọc và đổi nội dung của thẻ HTML</h3>
+		<div id="d1">This is <i>div</i> tag, and its id is: <b>d1</b></div>
+		<div id="btnReadD1Content">Đọc nội dung HTML của thẻ div d1</div>
+		<div id="btnChangeD1Content">Thay đổi nội dung HTML của thẻ div d1</div>
+		<div id="btnReadD1Text">Đọc nội dung text của thẻ div d1</div>
+		<div id="btnChangeD1Text">Thay đổi nội dung text của thẻ div d1</div>
+		
+		<h3>2. Chèn thêm nội dung vào thẻ HTML</h3>
+		<div id="d2">Đây là thẻ div, và id của nó là d2</div>
+		<div id="btnAppendLast">Chèn thêm nội dung vào cuối thẻ div d2</div>
+		<div id="btnAppendFirst">Chèn thêm nội dung vào đầu thẻ div d3</div>
+		
+		<h3>3. Chèn thêm nội dung bên ngoài thẻ HTML</h3>
+		<div id="d3">Đây là thẻ div, và id của nó là d3</div>
+		<div id="btnInsertAfterD3">Chèn thêm nội dung vào phía sau và ở ngoài thẻ div d3</div>
+		<div id="btnInsertBeforeD3">Chèn thêm nội dung vào phía trước và ở ngoài thẻ div d3</div>
+		
+		<h3>4. Xóa bỏ hoặc thay thế nội dung và thẻ HTML</h3>
+		<div id="d4parent" style="border: 2px solid red; background: cyan; padding: 10px;">
+			Đây là cha của d4
+			<div style="background: yellow" id="d4">Đây là thẻ div, và id của nó là d4</div>
+		</div>
+		<div id="btnEmptyD4">Làm rỗng nội dung của thẻ d4</div>
+		<div id="btnRemoveD4">Xóa hẳn d4 khỏi tài liệu</div>
+		<div id="btnUnwrapD4">Loại bỏ cha của d4</div>
+		<div id="btnReplaceD4">Thay thể thẻ d4 bằng thẻ khác (thay thế = nội dung mới)</div>
+		
+	</body>
+</html>
