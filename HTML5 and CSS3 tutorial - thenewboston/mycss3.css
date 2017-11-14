@@ -1,0 +1,19 @@
+#tuna {
+	color:red;
+}
+.natu {
+	color:blue;
+}
+p.goku {
+	color:cyan;
+}
+p[name="att"] {
+	color:orange;
+}
+p[name^="anh"] {
+	background-color:blue;
+	color:yellow;
+}
+p:nth-child(4) {color:green;}
+p:nth-child(odd) {background-color:pink;}
+p:nth-child(even) {background-color:gray;}

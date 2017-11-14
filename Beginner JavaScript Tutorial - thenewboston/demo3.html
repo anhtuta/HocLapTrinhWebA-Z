@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+	<head>
+		<title>JavaScript tutorial</title>
+	</head>
+	
+	<body>
+		<script type="text/javascript">
+			var in = self.setInterval("clock()", 50);
+			function clock() {
+				var t = new Date();
+				document.getElementById("clock").value = t;
+				alert(t);
+			}
+		</script>
+		
+		<input type="text" id="clock" size="35" />
+		<button onclick="in=window.clearInterval(in)">Stop interval</button>
+	</body>
+</html>
+
+<!-- tât c? nh?ng j có trong tag html là trang web c?a b?n -->

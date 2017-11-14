@@ -1,0 +1,86 @@
+
+#wrapper {
+	background-color: yellow;
+	width:860px;
+	height: 660px;
+	margin:auto;
+}
+#top {
+	background-color: yellow;
+	width:800px;
+	height: 100px;
+	padding: 10px;
+}
+#left {
+	background-color: blue;
+	width:200px;
+	height: 400px;
+	padding: 10px;
+	float:left;
+}
+
+#a1 {
+	background-color: blue;
+	width:200px;
+	height: 100px;
+}
+#a4 {
+	color:white;
+	background-color: green;
+	width:200px;
+	height: 300px;
+	
+}
+
+#content {
+	color:white;
+	background-color: gray;
+	width:400px;
+	height: 400px;
+	padding: 10px; 
+	float:left;
+}
+#a2 {
+	color:black;
+	background-color: white;
+	width:400px;
+	height: 200px;
+}
+#a5 {
+	color:white;
+	background-color: pink;
+	width:400px;
+	height: 200px;
+}
+
+#right {
+	color:white;
+	background-color: black;
+	width:200px;
+	height: 400px;
+	padding: 10px; 
+	float:left;
+}
+#a3 {
+	color:white;
+	background-color: purple;
+	width:200px;
+	height: 300px;
+}
+#a6 {
+	color:white;
+	background-color: orange;
+	width:200px;
+	height: 100px;
+}
+
+#footer {
+	color:white;
+	background-color: red;
+	width:840px;
+	height: 100px;
+	padding: 10px;
+	clear:both;
+}
+
+<!-- margin:auto: "ho layout ở giữa màn hình -->

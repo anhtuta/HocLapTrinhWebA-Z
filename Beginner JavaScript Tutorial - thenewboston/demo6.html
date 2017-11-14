@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+	<head>
+		<title>JavaScript tutorial</title>
+	</head>
+	
+	<body>
+		<script type="text/javascript">
+			function person(first_name, last_name, age, sex){
+				this.first_name=first_name;
+				this.last_name=last_name;
+				this.age=age;
+				this.sex=sex;
+				
+				//a method:
+				this.printInfo = printInfo;
+			}
+			person1= new person("Thuy", "Dau Bich", "23", "Female");
+			person2= new person("Chung", "Nguyen Bao", "24", "Male");
+			person3= new person("Binh", "Nguyen Nhat", "24", "Male");
+			person4= new person("Hoàn", "Đỗ Văn", "24", "Male");
+			document.write ("1. "+person1.last_name+" " + person1.first_name + "<BR>" );
+			document.write("2. "+person2.last_name +" "+ person2.first_name + "<BR>");
+			document.write("3. "+ person3.last_name +" "+ person3.first_name + "<BR>");
+			document.write("4. "+ person4.last_name +" "+ person4.first_name+"<BR>");
+
+			function printInfo() {
+				document.write(this.first_name + ' - ' + this.last_name + ' - ' + this.age);
+			}
+			p5 = new person("Anhtu", "Ta", "23", "Male");
+			p5.printInfo();
+		</script>
+		
+	</body>
+</html>
+
+<!-- tât c? nh?ng j có trong tag html là trang web c?a b?n -->

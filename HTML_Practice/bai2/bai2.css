@@ -1,0 +1,189 @@
+body {
+	background: #f1f0d1;
+	font-family: Comic Sans MS, Arial;
+	font-size: 18px;
+	overflow: auto;
+}
+h1, h2, h3 {
+	text-align: center;
+	padding-left: 5%;
+	color: #878E63;
+}
+
+p {
+	padding: 2%;
+	color: #878E63;
+}
+img {
+	text-align: center;
+	max-width: 100%;	//khi kích thước của browser bé hơn kích thước của ảnh thì ảnh sẽ thu nhỏ theo
+	height: auto;
+	width: auto;
+}
+
+#wrapper {
+	margin: 0 auto;
+	max-width: 100%;
+	width: 98%;		/*nghĩa là chiều rộng của nội dung chiếm 98% chiều rộng của browser, do đó có thể coi padding chiếm 2% */
+	background: #FEFBE8;
+	border: 1px solid #878E63;
+	border-radius: 10px;	/*Cả 4 góc của wrapper đều được uốn cong. */
+	box-shadow: 0 0 10px 0px rgba(12,3,25,0.8);		/*bóng của wrapper */
+}
+#callout {
+	width: 100%;
+	height: auto;
+	background: #878E63;
+	overflow: hidden;
+}
+#callout p {
+	text-align: right;
+	color: #F1F0D1;
+	font-size: 13px;
+	padding: 0.1% 5% 0 0;
+}
+#callout p a {
+	color: #F1F0D1;
+	text-decoration: none;
+}
+
+header {
+	width: 96%;
+	min-height: 125px;
+	padding: 5px;
+	text-align: center;
+}
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding-left: 50px;
+}
+nav ul li {
+	float: left;
+	border: 1px solid #878E63;
+	width: 15%;		/* mỗi 1 list-item chiếm 15% tổng chiều rộng của browser */
+	min-width: 80px;
+}
+
+nav ul li a {
+	background: #F1F0D1;
+	text-decoration: none;
+	display: block;
+	padding: 5% 12%;
+	font-weight: bold;
+	font-size: 18px;
+	color: #878E63;
+	text-align: center;
+}
+nav ul li a:hover, nav ul li.active a {
+	background-color: #878E63;
+	color: #F1F0D1;
+}
+
+.banner img {
+	width: 100%;
+	border-top: 1px solid #878E63;
+	border-bottom: 1px solid #878E63;
+}
+.left-col {
+	float: left;
+	width: 55%;
+	margin: -2% 1% 1% 1%;
+}
+.sidebar {
+	width: 40%;
+	max-width: 400px;
+	float: right;
+	margin: 1%;
+	margin-right: 2%;
+	text-align: center;
+}
+.clearfix {
+	clear: both;
+}
+.therapy {
+	float: left;
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	padding: 1%;
+}
+
+.section_wrapper {
+	padding-left: 2%;
+	/* text-align: center; : KHÔNG DÙNG ĐƯỢC CÁI NÀY!*/
+}
+.section {
+	width: 31%;
+	float: left;
+	text-align: center;
+	padding: 1%;
+}
+footer {
+	background: #878E63;
+	width: 100%;
+	overflow: hidden;
+}
+footer p, footer h3 {
+	color: #F1F0D1;
+}
+footer p a {
+	color: #F1F0D1;
+	text-decoration: none;
+}
+
+footer ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+footer ul li {
+	display: inline;
+}
+footer ul li img {
+	height: 50px;
+}
+
+/********************Media query****************/
+@media screen and (max-width: 478px) {
+	body {
+		font-size: 13px;
+	}
+}
+@media screen and (max-width: 740px) {
+	nav {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	nav  ul {
+		list-style: none;
+		margin: 0 auto;
+		padding-left: 0;
+	}
+	nav  ul li {
+		text-align: center;
+		margin-left: 0 auto;
+		width: 100%;
+		border-top: 1px solid #878E63;
+		border-bottom: 1px solid #878E63;
+	}
+	nav  ul li a{
+		padding: 8px 0px;
+		font-size: 16px;
+	}
+	.left-col {
+		width: 100%;
+		
+	}
+	.sidebar {
+		width: 100%;
+	}
+	.section {
+		float: left;
+		margin: 0;
+		width: 97%;
+	}
+	
+	
+}
+/* comment here... */

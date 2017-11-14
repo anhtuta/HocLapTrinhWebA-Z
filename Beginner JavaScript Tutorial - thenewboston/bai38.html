@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+	<head>
+		<title>JavaScript tutorial</title>
+	</head>
+	
+	<body>
+		<form name="myform">
+			Username: <input type="text" name="user"/>
+			Password: <input type="password" name="pass"/>
+			<input type="submit" value="Submit!" />
+		</form>
+		
+		<script type="text/javascript">
+			var x = document.forms[0].length;
+			document.write("How many item in the first form?: "+x);
+			
+			var x2 = document.forms[0].elements[0].name;
+			document.write("<br/>name of the first element in the form: "+x2);
+			
+			x2 = document.forms[0].elements[1].name;
+			document.write("<br/>name of the second element in the form: "+x2);
+			
+			x2 = document.myform.elements[1].name;
+			document.write("<br/>name of the second element in the form: "+x2);
+			
+			x2 = document.forms[0].pass.name;
+			document.write("<br/>name of the second element in the form: "+x2);
+			
+			/////////
+			function eventBtn() {
+				if(document.attform.thebox.checked) alert("Yes, its checked!");
+				else alert("No, its not checked");
+			}
+		</script>
+		
+		<form name="attform">
+			Java skill: <input type="checkbox" name="thebox"/>
+			<br/>
+			<input type="button" value="Press me!" onClick="eventBtn()"/>
+		</form>
+	</body>
+</html>
+
+<!-- tât cả những j có trong tag html là trang web của bạn -->

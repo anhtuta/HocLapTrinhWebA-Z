@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>This is the title of website</title>
+		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$("#ios").hide(3000);
+				$("h2.minion").hide(5000);
+				
+				$("#an").click(function() {
+					$("h2").hide(3000);
+					$("div.minion").hide(3000);
+					
+				});
+				$("#hien").click(function() {
+					$("h2").show(3000);
+					$("div.minion").show(3000);
+				});
+				
+				///////////
+				var str = $("#goku").html();
+				alert(str);
+				
+				///////////////
+				var so1 = $("#so1").html();		//lấy giá trị html từ trong vùng có id=so1
+				var so2 = $("#so2").html();
+				var sum = so1 + so2;
+				$("#kq").html(sum);		//hiển thị giá trị sum vào vùng có id=kq
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div id="an">Ẩn</div>
+		<div id="hien">Hiện</div>
+		<div id="ios">Lap trinh IOS</div>
+		<div id="android">Lap trinh Android</div>
+		<div class="minion">Danh cap mat trang</div>
+		<div class="minion">Despicable me</div>
+		<h2 class="minion">This is h2</h2>
+		
+		<h3 id="goku">Get value of this tag!</h3>
+		<div id="so1">8</div>
+		<div id="so2">10</div>
+		<div id="kq">Kq</div>
+	</body>
+</html>

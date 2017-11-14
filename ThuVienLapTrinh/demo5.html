@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.green_background {
+				background-color: green;
+				color: white;
+				padding: 10px;
+				margin: 10px;
+				border: 2px solid cyan;
+			}
+		</style>
+		<script>
+			function changeP2Content() {
+				document.getElementById("p2").innerHTML = "This is new content";
+			}
+			function changeP2Style() {
+				document.getElementById("p2").setAttribute("style", "color: blue;");
+			}
+			function changeDiv2Class() {
+				document.getElementById("div2").setAttribute("class", "green_background");
+			}
+			function changeDiv2BackgroundColor() {
+				document.getElementById("div2").style.backgroundColor = "magenta";
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<h2>This is Javascript tutorial series</h2>
+			<p id="p1">Khong choi heroes 3 nua! Sau khi het ky nay moi dc choi! I promise!</p>
+			<p id="p2" class="promis" style="color: red; background-color: yellow;">Tao da hua la phai giu loi!</p>
+		</div>
+		<div id="div2">This is div2. Do something with me please!</div>
+		<button onclick="changeP2Content()">Thay doi noi dung trong p2</button>
+		<button onclick="changeP2Style()">Thay doi style trong p2</button>
+		<button onclick="changeDiv2Class()">Thay doi class cho div2</button>
+		<button onclick="changeDiv2BackgroundColor()">Thay doi background cho div2</button>
+		
+		<script>
+			function cl(str) {
+				console.log(str);
+			}
+			var tagDiv1 = document.getElementById("div1");		//trả về 1 đối tượng là 1 thẻ HTML
+			console.log(tagDiv1.innerHTML);	//innerHTML trả về nội dung bên trong của thẻ, còn outerHTML thì trả về cả thẻ và nội dung của nó
+			
+			var arr = document.getElementsByTagName("p");
+			cl(arr[0].innerHTML);
+			cl(arr[1].innerHTML);
+			
+			var tag2 = document.querySelector("#p2.promis");
+			cl("tag2 = " + tag2.innerHTML);
+			
+			var tagP2 = document.getElementById("p2");
+			var value1 = tagP2.getAttribute("style");
+			cl("value1 = " + value1);
+			
+			var value2 = tagP2.style.backgroundColor;
+			cl("value2 = " + value2);
+		</script>
+	</body>
+</html>

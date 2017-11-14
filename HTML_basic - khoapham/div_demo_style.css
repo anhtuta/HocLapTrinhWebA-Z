@@ -1,0 +1,51 @@
+
+#wrapper {
+	background-color: cyan;
+	width:860px;
+	height: 660px;
+	padding:20px;
+	margin:auto;
+}
+#top {
+	background-color: yellow;
+	width:840px;
+	height: 100px;
+	padding: 10px;
+}
+#left {
+	background-color: blue;
+	width:200px;
+	height: 400px;
+	padding: 10px; 
+	float:left;
+}
+#content {
+	color:white;
+	background-color: gray;
+	width:400px;
+	height: 400px;
+	padding: 10px; 
+	float:left;
+}
+#right {
+	color:white;
+	background-color: black;
+	width:200px;
+	height: 400px;
+	padding: 10px; 
+	float:left;
+}
+#footer {
+	color:white;
+	background-color: red;
+	width:840px;
+	height: 100px;
+	padding: 10px;
+	clear:both;
+}
+
+/* margin:auto: cho layout ở giữa màn hình
+Chú ý: #left, #content và #right phải có cùng float:left để 3 bọn này ở cùng 1 hàng, nếu ko 3 đứa sẽ ở 1 hàng khác nhau
+và cái #footer phải clear float đi (clear cả 2 bên trái và phải) nếu ko nó vẫn ở cùng hàng với 3 bọn ở trên
+clear:both thì nó sẽ xuống hàng dưới
+ */

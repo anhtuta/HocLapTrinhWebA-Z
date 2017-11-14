@@ -1,0 +1,106 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+
+h1 {
+	font:bold 20px Comic Sans MS;
+}
+
+h2 {
+	font:bold 14px Tahoma;
+}
+
+header, section, footer, aside, nav, article, hgroup {
+	display:block;
+}
+
+body {
+	width: 100%;	/*để sử dụng Flexible Box Model */
+	display:-webkit-box;
+	-webkit-box-pack: center;	/*centering the website */
+}
+
+#big_wrapper {
+	max-width: 1000px;
+	margin: 20px 0px;	/*nếu dùng margin: 20px auto; là sai nhé */
+	display: -webkit-box;
+	-webkit-box-orient: vertical;	/*giống với display:block; */
+	-webkit-box-flex: 1;	/*1 = flexible, 0=fixed, not flexible, flexible nghĩa là tự thay đổi size theo kích thước của browser */
+	/*nghĩa là kích thước của phần này sẽ kéo dãn theo sự thay đổi kích thước của browser, nhưng chieuf rộng tối đa của nó là 1000px*/
+}
+
+
+#top_header {
+	background-color:yellow;
+	border: 3px solid black;
+	padding:20px;
+}
+
+#top_menu {
+	border:red;
+	background:blue;
+	color:white;
+}
+
+#top_menu li {
+	display:inline-block;
+	list-style:none;
+	padding:5px;
+	font: bold 14px Tahoma;
+}
+
+#new_div {
+	display: -webkit-box;
+	-webkit-box-orient:horizontal;		/*theo chiều ngang, giống với android:orientation="horizontal" của LinearLayout trong lập trình android */
+}
+
+#main_section {
+	border: 2px solid blue;
+	-webkit-box-flex: 1;	/*nghĩa là kích thước của phần này sẽ kéo dãn theo sự thay đổi kích thước của browser */
+	padding:20px;
+	margin:20px;
+}
+
+/* với webkit-box ta ko phải lo lắng chính xác size của khối này là bao nhiêu nữa */
+
+#side_news {		
+/*ta cần main_section flexible và cái này thì fixed.
+Nghĩa là khi thay đổi kích thước của browser thì chỉ có main_section thay đổi theo,
+còn side_news thì ko thay đổi theo mà cố định 220px,
+do đó ta cần thêm width: 220px; ở dưới đây: */ 
+	border: 2px solid red;
+	width: 220px;
+	margin:20px 20px;	/*20px:top, bottom; 20px:right, left */
+	padding:30px;
+	background:#66CCCC;
+}
+
+#the_footer {
+	background-color:pink;
+	text-align:center;
+	padding:20px;
+	border-top:2px solid green;
+}
+
+article {
+	background-color:#FFFBCC;
+	border: 2px solid red;
+	padding: 20px;
+	margin-bottom: 10px;
+}
+
+article footer {
+	text-align:right;
+}
+
+/*display:block; nghĩa là hiển thị cái tag đó trên cả 1 dòng, ko cho chèn thêm tag khác lên dòng đó nữa
+nhưng với block:inline thì ngược lại... */
+/*Chú ý rằng thằng big_wrapper nó có layout dạng vertical, nghĩa là các thành phần trong nó xếp từ trên xuống dưới
+ giống trong android:orientation="vertical". Trong thằng big_wrapper có 3 component chính là top_header, top_menu, new_div và the_footer
+ khi thêm 4 component đó thì chúng sắp xếp theo thứ tự từ trên xuống dưới và do big_wrapper có thuộc tính -webkit-box-flex: 1;
+ nên 4 component bên trong nó sẽ thay đổi kích thước khi browser thay đổi (ta gọi tắt là chúng có thể kéo dãn).
+ Trong thằng new_div có 2 component là main_section và side_news, 2 thằng này xếp theo chiều ngang giống với android:orientation="horizontal"
+ thằng thứ nhất là main_section có thuộc tính -webkit-box-flex: 1; do đó nó có thể kéo dãn. Còn thằng side_news ko có thuộc tính đó
+ nên nó ko thể kéo dãn đc và ta đã thiết lập chiều rộng cho nó: width: 220px;
+ 

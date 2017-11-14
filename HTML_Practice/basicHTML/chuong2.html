@@ -1,0 +1,177 @@
+<!-- Tài liệu của:
+ĐẠI HỌC QUỐC GIA TP.HỒ CHÍ MINH
+TRƯỜNG ĐẠI HỌC KHOA HỌC TỰ NHIÊN -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<style type="text/css">
+			th {
+				padding: 5px;
+				color: blue;
+				background: yellow;
+				font-size: 19px;
+				font-family: Comic Sans MS;
+			}
+			td {
+				padding: 5px;
+				background: cyan;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div style="font-size: 36px; font-weight: bold; color: red;">Các tag xử lý văn bản:</div>
+		<p>This is a p tag</p>
+		<h1>This is a h1 tag</h1>
+		<h2>This is h2 tag</h2>
+		<h5>This is h5</h5>
+		<p align="center">paragraph with: align="center"</p>
+		<hr size="15" align="right" width=80%>
+		<div><b>This is b tag</b></div>
+		<div><strong>This is strong tag</strong></div>
+		<div><em>this is em tag</em></div>
+		<div><i>This is i tag</i></div>
+		<div><big>this is big tag</big></div>
+		<div><small>this is small tag</small></div>
+		<div>this using sub tag: a<sub>2</sub></div>
+		<div>this using sup tag: x<sub>3</sub></div>
+		<div><dfn>this is dfn tag (definition term)</dfn></div>
+		<div><code>this is code tag</code></div>
+		<div><kbd>this is kbd tag (keyboard text)</kbd></div>
+		<div><var>this is var tag (variable part)</var></div>
+		<div><cite>this is cite tag (citation)</cite></div>
+		<div><blink>This is blink tag</blink></div>
+		<div><del>this is del (delete)</del></div>
+		<div><ins>this is ins (underline)</ins></div>
+		<div><samp>this is samp (sample)</samp></div>
+		<div><pre>this is pre tag:
+				Xuống 
+				dòng
+					và   	dể khoảng trắng (tab...) như 	thế này</pre></div>
+		<font size="4" color="green">this using font tag</font>
+		<div>using sub and sup tags (subscript and superscript): (x<sub>1</sub><sup>2</sup> + x<sub>2</sub><sup>2</sup>)<sup>3</sup> = x<sub>1</sub><sup>6</sup> + 3x<sub>1</sub><sup>4</sup>x<sub>2</sub><sup>2</sup> + 3x<sub>1</sub><sup>2</sup>x<sub>2</sub><sup>4</sup> + x<sub>2</sub><sup>6</sup></div>
+		<br><div style="color: blue"><big>Hiển thị các ký tự đặc biệt:</big></div>
+		<div> <, >, ', ", -, &hearts; &clubs; &#35;	&#64; &pound; &copy; &reg;</div>
+		<p>see more: http://webgiare.net/thong-tin-huu-ich/thu-thuat-website/655-bang-ky-tu-dac-biet-trong-html.html</p>
+
+		<hr size="10" align="right" width=100% color="blue"/>
+		<div style="font-size: 36px; font-weight: bold; color: red;">Các tag xử lý hình ảnh:</div>
+		<img src="Songoku.jpg" alt="Tên của ảnh để google có thể tìm kiếm đc ảnh này" width="50%" border="5px solid blue">
+
+		<div style="font-size: 36px; font-weight: bold; color: red;">Các tag xử lý âm thanh:</div>
+		<audio controls="controls">
+			<source src="Light up my Love feat Moco - Cytus.mp3" type="audio/mp3">
+		</audio>
+
+		<div style="font-size: 36px; font-weight: bold; color: red;">Các tag danh sách:</div>
+		<div style="color: blue"><big>Danh sách có thứ tự: ol:</big></div>
+		<ol>
+			<li>papaya (đu đủ)</li>
+			<li>plum (mận)</li>
+			<li>watermelon</li>
+			<li>strawberry (dâu tây)</li>
+			<li>coconut</li>
+			<li>grape</li>
+			<li>kumquat</li>
+			<li>pomelo (bưởi)</li>
+			<li>guava (ổi)</li>
+		</ol>
+		<ol type="a">
+			<li>papaya (đu đủ)</li>
+			<li>plum (mận)</li>
+			<li>watermelon</li>
+			<li>strawberry (dâu tây)</li>
+			<li>coconut</li>
+			<li>grape</li>
+			<li>kumquat</li>
+			<li>pomelo (bưởi)</li>
+			<li>guava (ổi)</li>
+		</ol>
+		<ol type="i">
+			<li>papaya (đu đủ)</li>
+			<li>plum (mận)</li>
+			<li>watermelon</li>
+			<li>strawberry (dâu tây)</li>
+			<li>coconut</li>
+			<li>grape</li>
+			<li>kumquat</li>
+			<li>pomelo (bưởi)</li>
+			<li>guava (ổi)</li>
+		</ol>
+		<ol type="A">
+			<li>papaya (đu đủ)</li>
+			<li>plum (mận)</li>
+			<li>watermelon</li>
+			<li>strawberry (dâu tây)</li>
+			<li>coconut</li>
+			<li>grape</li>
+			<li>kumquat</li>
+			<li>pomelo (bưởi)</li>
+			<li>guava (ổi)</li>
+		</ol>
+		<ol>
+			<li type="1">papaya (đu đủ)</li>
+			<li type="a">plum (mận)</li>
+			<li type="i">watermelon</li>
+			<li type="A">strawberry (dâu tây)</li>
+			<li type="1">coconut</li>
+			<li type="i">grape</li>
+			<li type="a">kumquat</li>
+			<li type="A">pomelo (bưởi)</li>
+			<li type="i">guava (ổi)</li>
+		</ol>
+		<div style="color: blue"><big>Danh sách ko có thứ tự: ul:</big></div>
+		<ul type="disc">
+			<li>papaya (đu đủ)</li>
+			<li>plum (mận)</li>
+			<li>pomelo (bưởi)</li>
+			<li>guava (ổi)</li>
+		</ul>
+		<ul type="circle">
+			<li>papaya (đu đủ)</li>
+			<li>plum (mận)</li>
+			<li>pomelo (bưởi)</li>
+			<li>guava (ổi)</li>
+		</ul>
+		<ul type="square">
+			<li>papaya (đu đủ)</li>
+			<li>plum (mận)</li>
+			<li>pomelo (bưởi)</li>
+			<li>guava (ổi)</li>
+		</ul>
+
+		<div style="font-size: 36px; font-weight: bold; color: red;">Các tag với table:</div>
+		<table border="5" style="padding: 2px">
+			<tr>
+				<th>Name</th>
+				<th>Telephone</th>
+				<th>Country</th>
+				<th>Center</th>
+			</tr>
+			<tr>
+				<td rowspan="2">Bill Gate</td>
+				<td>0974248697</td>
+				<td rowspan="3" colspan="2">Silicon valley - USA</td>
+			</tr>
+			<tr>
+				<td>0975233700</td>
+			</tr>
+			<tr>
+				<td>Steve Job</td>
+				<td>01867150073</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+<!-- nav = navigation
+
+
+
+
+
+
+
+
+<!-- this is comment -->

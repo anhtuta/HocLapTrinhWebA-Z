@@ -1,0 +1,14 @@
+* {color:blue;}
+
+:not(.goku) {color:red;}
+
+div > p {
+	color:cyan;
+}
+
+body > p {color:pink;}
+
+p.att + p{background-color:yellow;}
+
+<!-- // p.att + p{background-color:yellow;}: nghĩa là các paragraph theo sau p.att sẽ có background-color = yellow;
+nếu thay dấu cộng bởi dấu ngã ~ thì khác nhau 1 chút

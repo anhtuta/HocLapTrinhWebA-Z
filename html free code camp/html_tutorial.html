@@ -1,0 +1,753 @@
+Use a CSS Class to Style an Element
+Classes are reusable styles that can be added to HTML elements.
+
+Here's an example CSS class declaration:
+
+<style>
+  .blue-text {
+    color: blue;
+  }
+</style>
+You can see that we've created a CSS class called blue-text within the <style> tag.
+
+You can apply a class to an HTML element like this:
+
+<h2 class="blue-text">CatPhotoApp</h2>
+
+Note that in your CSS style element, classes should start with a period. In your HTML elements' class declarations, classes shouldn't start with a period.
+
+======
+Font size is controlled by the font-size CSS property, like this:
+
+h1 {
+  font-size: 30px;
+}
+
+You can set an element's font by using the font-family property.
+
+For example, if you wanted to set your h2 element's font to Sans-serif, you would use the following CSS:
+
+h2 {
+  font-family: Sans-serif;
+}
+
+
+Import a Google Font
+Now, let's import and apply a Google font (note that if Google is blocked in your country, you will need to skip this challenge).
+
+First, you'll need to make a call to Google to grab the Lobster font and load it into your HTML.
+
+Copy the following code snippet and paste it into the top of your code editor:
+
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+Now you can set Lobster as a font-family value on your h2 element.
+
+
+Specify How Fonts Should Degrade
+There are several default fonts that are available in all browsers. These include Monospace, Serif and Sans-Serif
+
+When one font isn't available, you can tell the browser to "degrade" to another font.
+
+For example, if you wanted an element to use the Helvetica font, but also degrade to the Sans-Serif font when Helvetica wasn't available, you could use this CSS style:
+
+p {
+  font-family: Helvetica, Sans-Serif;
+}
+
+
+Add Images to your Website
+You can add images to your website by using the img element, and point to a specific image's URL using the src attribute.
+
+An example of this would be:
+
+<img src="https://www.your-image-source.com/your-image.jpg">
+
+All img elements must have an alt attribute. The text inside an alt attribute is used for screen readers to improve accessibility and is displayed if the image fails to load.
+
+
+Size your Images
+CSS has a property called width that controls an element's width. Just like with fonts, we'll use px (pixels) to specify the image's width.
+
+For example, if we wanted to create a CSS class called larger-image that gave HTML elements a width of 500 pixels, we'd use:
+
+<style>
+  .larger-image {
+    width: 500px;
+  }
+</style>
+
+
+Add Borders Around your Elements
+CSS borders have properties like style, color and width
+
+For example, if we wanted to create a red, 5 pixel border around an HTML element, we could use this class:
+
+<style>
+  .thin-red-border {
+    border-color: red;
+    border-width: 5px;
+    border-style: solid;
+  }
+</style>
+Create a class called thick-green-border that puts a 10-pixel-wide green border with a style of solid around an HTML element, and apply that class to your cat photo.
+
+Remember that you can apply multiple classes to an element by separating each class with a space within its class attribute. For example:
+
+<img class="class1 class2">
+
+
+
+Add Rounded Corners with a Border Radius
+Your cat photo currently has sharp corners. We can round out those corners with a CSS property called border-radius.
+
+You can specify a border-radius with pixels. Give your cat photo a border-radius of 10px.
+
+Note: this waypoint allows for multiple possible solutions. For example, you may add border-radius to either the .thick-green-border class or .smaller-image class.
+
+
+Make Circular Images with a Border Radius
+In addition to pixels, you can also specify a border-radius using a percentage.
+VD:
+.thick-green-border {
+    border-color: green;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 10px;
+    border-radius: 50%;
+}
+.smaller-image {
+	width: 100px;
+}
+
+Và bên trong thẻ img: <img class="smaller-image thick-green-border" src="https://bit.ly/fcc-relaxing-cat" alt="A cute orange cat lying on its back. ">
+chú ý rằng tham số border-radius: 50%; có thể ở bên trong class thick-green-border hay smaller-image đều được!
+
+
+Link to External Pages with Anchor Elements
+a elements, also known as anchor elements, are used to link to content outside of the current page.
+Here's an example:
+<a href="http://http://freecatphotoapp.com">cat photos</a>
+khi click vào dòng chữ "cat photos" trên trình duyệt thì nó tự động chuyển sang trang http://http://freecatphotoapp.com
+Nest an Anchor Element within a Paragraph
+VD: <p>View more <a href="http://www.freecatphotoapp.com">cat photos</a></p>
+
+Make Dead Links using the Hash Symbol
+Sometimes you want to add a elements to your website before you know where they will link.
+
+This is also handy when you're changing the behavior of a link using jQuery, which we'll learn about later.
+Replace the value of your a element's href attribute with a #, also known as a hash symbol, to turn it into a dead link.
+VD: <p>Click here for <a href="#">cat photos</a>.</p>
+
+
+Turn an Image into a Link
+You can make elements into links by nesting them within an a element.
+
+Nest your image within an a element. Here's an example:
+
+<a href="#"><img src="https://bit.ly/fcc-running-cats" alt="Three kittens running towards the camera. "></a>
+
+Remember to use # as your a element's href property in order to turn it into a dead link.
+
+
+Create a Bulleted Unordered List
+HTML has a special element for creating unordered lists, or bullet point-style lists.
+
+Unordered lists start with a <ul> element. Then they contain some number of <li> elements.
+
+For example:
+
+<ul>
+  <li>milk</li>
+  <li>cheese</li>
+</ul>
+would create a bullet point-style list of "milk" and "cheese".
+
+
+Create an Ordered List
+HTML has a special element for creating ordered lists, or numbered-style lists.
+
+Ordered lists start with a <ol> element. Then they contain some number of <li> elements.
+
+For example:
+
+<ol>
+  <li>Garfield</li>
+  <li>Sylvester</li>
+</ol>
+would create a numbered list of "Garfield" and "Sylvester".
+VD:
+<p>Things cats love:</p>
+<ul>
+  <li>cat nip</li>
+  <li>laser pointers</li>
+  <li>lasagna</li>
+</ul>
+<p>Top 3 things cats hate:</p>
+<ol>
+  <li>dog</li>
+  <li>ghost</li>
+  <li>dead</li>
+</ol>
+/////ket qua://///////
+Things cats love:
+	- cat nip
+	- laser pointers
+	- lasagna
+Top 3 things cats hate:
+	1.dog
+	2.ghost
+	3.dead
+
+	
+	Create a Text Field
+Now let's create a web form.
+
+Text inputs are a convenient way to get input from your user.
+
+You can create one like this:
+
+<input type="text">
+
+Note that input elements are self-closing.
+Add Placeholder Text to a Text Field
+Your placeholder text is what appears in your text input before your user has input anything.
+
+You can create placeholder text like so:
+
+<input type="text" placeholder="this is placeholder text">
+
+Create a Form Element
+You can build web forms that actually submit data to a server using nothing more than pure HTML. You can do this by specifying an action on your form element.
+
+For example:
+
+<form action="/url-where-you-want-to-submit-form-data"></form>
+
+Add a Submit Button to a Form
+Let's add a submit button to your form. Clicking this button will send the data from your form to the URL you specified with your form's action attribute.
+
+Here's an example submit button:
+
+<button type="submit">this button submits the form</button>
+
+Use HTML5 to Require a Field
+You can require specific form fields so that your user will not be able to submit your form until he or she has filled them out.
+
+For example, if you wanted to make a text input field required, you can just add the word required within your input element, you would use: <input type="text" required>
+
+Make your text input a required field, so that your user can't submit the form without completing this field.
+
+Then try to submit the form without inputing any text. See how your HTML5 form notifies you that the field is required?
+
+Create a Set of Radio Buttons
+You can use radio buttons for questions where you want the user to only give you one answer.
+
+Radio buttons are a type of input
+
+Each of your radio buttons should be nested within its own label element.
+
+All related radio buttons should have the same name attribute.
+
+Here's an example of a radio button:
+<label><input type="radio" name="indoor-outdoor">Indoor</label>
+<label><input type="radio" name="indoor-outdoor">Outdoor</label>
+
+
+Create a Set of Checkboxes
+Forms commonly use checkboxes for questions that may have more than one answer.
+
+Checkboxes are a type of input
+
+Each of your checkboxes should be nested within its own label element.
+
+All related checkbox inputs should have the same name attribute.
+
+Here's an example of a checkbox:
+<label><input type="checkbox" name="personality"> Loving</label>
+<label><input type="checkbox" name="personality"> Lazy</label>
+<label><input type="checkbox" name="personality"> Energetic</label>
+
+
+Check Radio Buttons and Checkboxes by Default
+You can set a checkbox or radio button to be checked by default using the checked attribute.
+
+To do this, just add the word "checked" to the inside of an input element. For example:
+
+<input type="radio" name="test-name" checked>
+
+
+Nest Many Elements within a Single Div Element
+The div element, also known as a division element, is a general purpose container for other elements.
+
+The div element is probably the most commonly used HTML element of all. It's useful for passing the CSS of its own class declarations down to all the elements that it contains.
+
+Just like any other non-self-closing element, you can open a div element with <div> and close it on another line with </div>.
+
+Give a Background Color to a Div Element
+You can set an element's background color with the background-color property.
+
+For example, if you wanted an element's background color to be silver, you'd put this within your style element:
+<style>
+  .silver-background {
+    background-color: silver;
+  }
+</style>
+<div class="silver-background">
+...something here...
+</div>
+
+
+Set the ID of an Element
+In addition to classes, each HTML element can also have an id attribute.
+
+There are several benefits to using id attributes, and you'll learn more about them once you start using jQuery.
+
+id attributes should be unique. Browsers won't enforce this, but it is a widely agreed upon best practice. So please don't give more than one element the same id attribute.
+
+Here's an example of how you give your h2 element the id of cat-photo-app:
+
+<h2 id="cat-photo-app">
+
+Use an ID Attribute to Style an Element
+One cool thing about id attributes is that, like classes, you can style them using CSS.
+
+Here's an example of how you can take your element with the id attribute of cat-photo-element and give it the background color of green. In your style element:
+
+#cat-photo-element {
+  background-color: green;
+}
+Note that inside your style element, you always reference classes by putting a . in front of their names. You always reference ids by putting a # in front of their names.
+
+
+Adjusting the Padding of an Element
+Now let's put our Cat Photo App away for a little while and learn more about styling HTML.
+
+You may have already noticed this, but all HTML elements are essentially little rectangles.
+
+Three important properties control the space that surrounds each HTML element: padding, margin, and border.
+
+An element's padding controls the amount of space between the element and its border.
+
+Here, we can see that the green box and the red box are nested within the yellow box. Note that the red box has more padding than the green box.
+
+When you increase the green box's padding, it will increase the distance between the text padding and the border around it.
+
+Adjust the Margin of an Element
+An element's margin controls the amount of space between an element's border and surrounding elements.
+
+Here, we can see that the green box and the red box are nested within the yellow box. Note that the red box has more margin than the green box, making it appear smaller.
+
+When you increase the green box's margin, it will increase the distance between its border and surrounding elements.
+
+Add a Negative Margin to an Element
+An element's margin controls the amount of space between an element's border and surrounding elements.
+
+If you set an element's margin to a negative value, the element will grow larger.
+
+Add Different Padding to Each Side of an Element
+Sometimes you will want to customize an element so that it has different padding on each of its sides.
+
+CSS allows you to control the padding of an element on all four sides with padding-top, padding-right, padding-bottom, and padding-left properties.
+VD:
+<style>
+  .injected-text {
+    margin-bottom: -25px;
+    text-align: center;
+  }
+
+  .box {
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    text-align: center;
+  }
+
+  .yellow-box {
+    background-color: yellow;
+    padding: 10px;
+  }
+  
+  .red-box {
+    background-color: red;
+    padding-top: 40px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+  }
+
+  .green-box {
+    background-color: green;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    padding-right: 20px
+  }
+</style>
+<h5 class="injected-text">margin</h5>
+
+<div class="box yellow-box">
+  <h5 class="box red-box">padding</h5>
+  <h5 class="box green-box">padding</h5>
+</div>
+Sometimes you will want to customize an element so that it has a different margin on each of its sides.
+
+CSS allows you to control the margin of an element on all four sides with margin-top, margin-right, margin-bottom, and margin-left properties.
+Use Clockwise Notation to Specify the Padding of an Element
+Instead of specifying an element's padding-top, padding-right, padding-bottom, and padding-left properties, you can specify them all in one line, like this:
+
+padding: 10px 20px 10px 20px;
+
+These four values work like a clock: top, right, bottom, left, and will produce the exact same result as using the side-specific padding instructions.
+
+Use Clockwise Notation to Specify the Margin of an Element
+Let's try this again, but with margin this time.
+
+Instead of specifying an element's margin-top, margin-right, margin-bottom, and margin-left properties, you can specify them all in one line, like this:
+
+margin: 10px 20px 10px 20px;
+
+These four values work like a clock: top, right, bottom, left, and will produce the exact same result as using the side-specific margin instructions.
+VD:
+<style>
+  .injected-text {
+    margin-bottom: -25px;
+    text-align: center;
+  }
+
+  .box {
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    text-align: center;
+  }
+
+  .yellow-box {
+    background-color: yellow;
+    padding: 20px 40px 20px 40px;
+  }
+  
+  .red-box {
+    background-color: red;
+    margin: 20px 40px 20px 40px;
+  }
+
+  .green-box {
+    background-color: green;
+    margin: 40px 20px 20px 40px
+  }
+</style>
+<h5 class="injected-text">margin</h5>
+
+<div class="box yellow-box">
+  <h5 class="box red-box">padding</h5>
+  <h5 class="box green-box">padding</h5>
+</div>
+
+
+
+set màu cho body:
+<style>
+  body {
+    background-color: black;
+  }
+</style>
+Inherit Styles from the Body Element
+Now we've proven that every HTML page has a body element, and that its body element can also be styled with CSS.
+
+Remember, you can style your body element just like any other HTML element, and all your other elements will inherit your body element's styles.
+First, create a h1 element with the text Hello World
+
+Then, let's give all elements on your page the color of green by adding color: green; to your body element's style declaration.
+
+Finally, give your body element the font-family of Monospace by adding font-family: Monospace; to your body element's style declaration.
+VD:
+<style>
+  body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+  }
+
+</style>
+
+<h1>Hello World</h1>
+
+Prioritize One Style Over Another
+Sometimes your HTML elements will receive multiple styles that conflict with one another.
+
+For example, your h1 element can't be both green and pink at the same time.
+
+Let's see what happens when we create a class that makes text pink, then apply it to an element. Will our class override the body element's color: green; CSS property?
+<style>
+  body {
+    background-color: black;
+    font-family: Monospace;
+    color: green;
+  }
+  
+  .pink-text {
+    color: pink;
+  }
+</style>
+<h1 class="pink-text">Hello World!</h1>
+
+Override Styles in Subsequent CSS:
+Nếu làm như sau:
+
+<style>
+  body {
+    background-color: black;
+    font-family: Monospace;
+    color: green;
+  }
+  .pink-text {
+    color: pink;
+  }
+  .blue-text {
+    color: blue;
+  }
+</style>
+<h1 class="pink-text blue-text">Hello World!</h1>
+thì h1 chỉ có màu xanh, nghĩa là thằng blue-text đã ghi đè lên pink-text và pink-text ko còn tác dụng nữa
+
+Override Class Declarations by Styling ID Attributes
+We just proved that browsers read CSS from top to bottom. That means that, in the event of a conflict, the browser will use whichever CSS declaration came last.
+
+But we're not done yet. There are other ways that you can override CSS. Do you remember id attributes?
+
+Let's override your pink-text and blue-text classes, and make your h1 element orange, by giving the h1 element an id and then styling that id.
+
+Give your h1 element the id attribute of orange-text:
+<style>
+  body {
+    background-color: black;
+    font-family: Monospace;
+    color: green;
+  }
+  .pink-text {
+    color: pink;
+  }
+  .blue-text {
+    color: blue;
+  }
+  #orange-text {
+    color: orange;
+  }
+</style>
+
+<h1 id="orange-text" class="pink-text blue-text">
+  Hello World!</h1>
+  
+  Override Class Declarations with Inline Styles
+So we've proven that id declarations override class declarations, regardless of where they are declared in your style element CSS.
+
+There are other ways that you can override CSS. Do you remember inline styles?
+
+Use an in-line style to try to make our h1 element white. Remember, in line styles look like this:
+
+<h1 style="color: green">
+
+Override All Other Styles by using Important
+Yay! We just proved that in-line styles will override all the CSS declarations in your style element.
+
+But wait. There's one last way to override CSS. This is the most powerful method of all. But before we do it, let's talk about why you would ever want to override CSS.
+
+In many situations, you will use CSS libraries. These may accidentally override your own CSS. So when you absolutely need to be sure that an element has specific CSS, you can use !important
+
+Let's go all the way back to our pink-text class declaration. Remember that our pink-text class was overridden by subsequent class declarations, id declarations, and in-line styles.
+
+Let's add the keyword !important to your pink-text element's color declaration to make 100% sure that your h1 element will be pink.
+
+An example of how to do this is:
+
+color: red !important;
+Vậy toàn bộ code phần này như sau:
+<style>
+  body {
+    background-color: black;
+    font-family: Monospace;
+    color: green;
+  }
+  #orange-text {
+    color: orange;
+  }
+  .pink-text {
+    color: pink !important;
+  }
+  .blue-text {
+    color: blue;
+  }
+</style>
+<h1 id="orange-text" class="pink-text blue-text" style="color: white">Hello World!</h1>
+
+==========
+Use Hex Code for Specific Colors
+Did you know there are other ways to represent colors in CSS? One of these ways is called hexadecimal code, or hex code for short.
+
+We usually use decimals, or base 10 numbers, which use the symbols 0 to 9 for each digit. Hexadecimals (or hex) are base 16 numbers. This means it uses sixteen distinct symbols. Like decimals, the symbols 0-9 represents values zero to nine. Then A,B,C,D,E,F represent values ten to fifteen. Altogether, 0 to F can represent a digit in hexadecimal, giving us 16 total possible values. You can find more information about hexadecimal numbers here.
+
+In CSS, we can use 6 hexadecimal digits to represent colors, two each for the red (R), green (G), and blue (B) components. For example, #000000 is black and is also the lowest possible value. You can find more information about the RGB color system here.
+
+Use Hex Code to Mix Colors
+To review, hex codes use 6 hexadecimal digits to represent colors, two each for red (R), green (G), and blue (B) components.
+
+From these three pure colors (red, green, and blue), we can vary the amounts of each to create over 16 million other colors!
+
+For example, orange is pure red, mixed with some green, and no blue. In hex code, this translates to being #FFA500.
+
+The digit 0 is the lowest number in hex code, and represents a complete absence of color.
+
+The digit F is the highest number in hex code, and represents the maximum possible brightness.
+VD 1 vài màu:
+Color		Hex Code
+Dodger Blue	#2998E4
+Green		#00FF00
+Orange		#FFA500
+Red			#FF0000
+Use Abbreviated Hex Code
+Many people feel overwhelmed by the possibilities of more than 16 million colors. And it's difficult to remember hex code. Fortunately, you can shorten it.
+
+For example, red's hex code #FF0000 can be shortened to #F00. This shortened form gives one digit for red, one digit for green, and one digit for blue.
+
+This reduces the total number of possible colors to around 4,000. But browsers will interpret #FF0000 and #F00 as exactly the same color.
+VD vài màu viết tắt:
+Color	Short Hex Code
+Cyan	#0FF
+Green	#0F0
+Red		#F00
+Fuchsia	#F0F
+
+Use RGB values to Color Elements
+Another way you can represent colors in CSS is by using RGB values.
+
+The RGB value for black looks like this:
+
+rgb(0, 0, 0)
+
+The RGB value for white looks like this:
+
+rgb(255, 255, 255)
+
+Instead of using six hexadecimal digits like you do with hex code, with RGB you specify the brightness of each color with a number between 0 and 255.
+
+Use RGB to Mix Colors
+Just like with hex code, you can mix colors in RGB by using combinations of different values.
+VD;
+<style>
+  .red-text {
+    color: rgb(255, 0, 0);
+  }
+  .orchid-text {
+    color: rgb(218, 112, 214);
+  }
+  .sienna-text {
+    color: rgb(160, 82, 45);
+  }
+  .blue-text {
+    color: rgb(0, 0, 255);
+  }
+</style>
+
+<h1 class="red-text">I am red!</h1>
+
+<h1 class="orchid-text">I am orchid!</h1>
+
+<h1 class="sienna-text">I am sienna!</h1>
+
+<h1 class="blue-text">I am blue!</h1>
+
+======
+Use Responsive Design with Bootstrap Fluid Containers
+In the HTML5 and CSS section of FreeCodeCamp we built a Cat Photo App. Now let's go back to it. This time, we'll style it using the popular Bootstrap responsive CSS framework.
+
+Bootstrap will figure out how wide your screen is and respond by resizing your HTML elements - hence the name Responsive Design.
+
+With responsive design, there is no need to design a mobile version of your website. It will look good on devices with screens of any width.
+
+You can add Bootstrap to any app by adding the following code to the top of your HTML:
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+
+Make Images Mobile Responsive
+First, add a new image below the existing one. Set its src attribute to https://bit.ly/fcc-running-cats.
+
+It would be great if this image could be exactly the width of our phone's screen.
+
+Fortunately, with Bootstrap, all we need to do is add the img-responsive class to your image. Do this, and the image should perfectly fit the width of your page.
+
+Center Text with Bootstrap
+Now that we're using Bootstrap, we can center our heading element to make it look better. All we need to do is add the class text-center to our h2 element.
+
+By making them block elements with the additional class of btn-block, your button will stretch to fill your page's entire horizontal space and any elements following it will flow onto a "new line" below the block.
+<button class="btn btn-block">Submit</button>
+This button would take up 100% of the available width.
+
+Taste the Bootstrap Button Color Rainbow
+The btn-primary class is the main color you'll use in your app. It is useful for highlighting actions you want your user to take.
+
+Call out Optional Actions with Button Info
+Bootstrap comes with several pre-defined colors for buttons. The btn-info class is used to call attention to optional actions that the user can take.
+Bootstrap comes with several pre-defined colors for buttons. The btn-danger class is the button color you'll use to notify users that the button performs a destructive action, such as deleting a cat photo.
+
+Use the Bootstrap Grid to Put Elements Side By Side
+Bootstrap uses a responsive grid system, which makes it easy to put elements into rows and specify each element's relative width. Most of Bootstrap's classes can be applied to a div element.
+
+Here's a diagram of how Bootstrap's 12-column grid layout works:
+
+//xem hinh anh///
+
+Note that in this illustration, the col-md-* class is being used. Here, md means medium, and * is a number specifying how many columns wide the element should be. In this case, the column width of an element on a medium-sized screen, such as a laptop, is being specified.
+In the Cat Photo App that we're building, we'll use col-xs-*, where xs means extra small (like an extra-small mobile phone screen), and * is the number of columns specifying how many columns wide the element should be.
+Put the Like, Info and Delete buttons side-by-side by nesting all three of them within one <div class="row"> element, then each of them within a <div class="col-xs-4"> element.
+The row class is applied to a div, and the buttons themselves can be nested within it.
+VD:
+<div class="row">
+    <div class="col-xs-4">
+      <button class="btn btn-block btn-primary">Like</button>
+    </div>
+    <div class="col-xs-4">
+      <button class="btn btn-block btn-info">Info</button>
+    </div>
+    <div class="col-xs-4">
+      <button class="btn btn-block btn-danger">Delete</button>
+    </div>
+</div>
+
+
+By using the span element, you can put several elements together, and even style different parts of the same element differently.
+
+Nest the word "love" in your "Things cats love" element below within a span element. Then give that span the class text-danger to make the text red.
+
+Here's how you would do this with the "Top 3 things cats hate" element:
+
+<p>Top 3 things cats <span class = "text-danger">hate:</span></p>
+
+
+Create a Custom Heading
+We will make a simple heading for our Cat Photo App by putting the title and relaxing cat image in the same row.
+
+Remember, Bootstrap uses a responsive grid system, which makes it easy to put elements into rows and specify each element's relative width. Most of Bootstrap's classes can be applied to a div element.
+Note that in this illustration, the col-md-* class is being used. Here, md means medium, and * is a number specifying how many columns wide the element should be. In this case, the column width of an element on a medium-sized screen, such as a laptop, is being specified.
+
+In the Cat Photo App that we're building, we'll use col-xs-*, where xs means extra small (like an extra-small mobile phone screen), and * is the number of columns specifying how many columns wide the element should be.
+VD:
+<div class="col-xs-4">
+      <button class="btn btn-block btn-primary">Like</button>
+    </div>
+    <div class="col-xs-4">
+      <button class="btn btn-block btn-info">Info</button>
+    </div>
+    <div class="col-xs-4">
+      <button class="btn btn-block btn-danger">Delete</button>
+    </div>
+  </div>
+
+  You can add Font Awesome to any app just by including it by adding the following code to the top of your HTML:
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+The i element was originally used to make other elements italic, but is now commonly used for icons. You add the Font Awesome classes to the i element to turn it into an icon, for example:
+<button class="btn btn-block btn-primary"><i class="fa fa-thumbs-up"></i>Like</button>
+Cái button like ở trên sẽ có thêm icon like ở bên trong nó
+
+

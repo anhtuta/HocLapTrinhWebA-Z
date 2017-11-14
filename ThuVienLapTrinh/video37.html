@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function cl(str) {
+				console.log(str);
+			}
+			function Student(na, ag, addr) {
+				this.name = na;
+				this.age = ag;
+				this.address = addr;
+				this.sex = "unknown";
+				
+				this.getInfo = function() {
+					return this.name + " - " + this.age + " - " + this.sex + " - " + this.address;
+				}
+				
+				this.getName = function() {
+					return this.name;
+				}
+				this.setName = function(newName) {
+					this.name = newName;
+				}
+				
+				this.setSex = function(newSex) {
+					this.sex = newSex;
+				}
+			}
+			
+			var st1 = new Student("Anhtu", 23, "Hanoi");
+			console.log(st1.getInfo());
+			
+			st1.setName("Nguyen bka");
+			cl(st1.getInfo());
+			
+			st1.setSex("Male");
+			cl(st1.getInfo());
+			
+			var st2 = new Student();
+			cl(st2.getInfo());
+		</script>
+	</head>
+	<body>
+		<h2>Bắt đầu với lập trình hướng đối tượng (OOP) trong Javasript</h2>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+* {
+	margin:0px;
+	padding:0px;
+}
+
+h1 {
+	font:bold 20px Comic Sans MS;
+}
+
+h2 {
+	font:bold 14px Tahoma;
+}
+
+header, section, footer, aside, nav, article, hgroup {
+	display:block;
+}
+
+body {
+	text-align:center;
+}
+
+#big_wrapper {
+	border: 2px solid black;
+	width: 1000px;
+	margin: 20px auto;		/*cho cái big_wrapper này nằm ở giữa và có margin = 20px */
+	text-align:left;
+}
+
+#top_header {
+	background-color:yellow;
+	border: 2px solid blue;
+	padding:20px;
+}
+
+#top_menu {
+	background-color:blue;
+	color:white;
+}
+
+#top_menu li {
+	display:inline-block;
+	list-style:none;
+	padding:5px;
+	font: bold 14px Tahoma;
+}
+
+#main_section {
+	/* background-color:cyan; */
+	float: left;
+	width:660px;
+	margin:30px;  /* 660px + 30px(margin-left) + 30px(margin-right) = 720px, do đó còn lại 1000px - 720px = 280px */
+}
+
+#side_news {
+	float:left;		/*Dùng dòng này để nó ở cùng dòng với #main_section */
+	width: 220px;
+	margin:20px 0px;	/*20px:top, bottom; 0px:right, left */
+	padding:30px;
+	background-color:#66CCCC;
+}
+
+#the_footer {
+	background-color:pink;
+	clear:both;	/*Xóa bỏ thuộc tính float cả ở bên trái và phải đã thiết lập ở trước dòng này, nếu ko xóa thì nó sẽ ở cùng dòng với #main_section và #side_news do 2 bọn này đều có float:left */
+	text-align:center;
+	padding:20px;
+	border-top:2px solid green;
+}
+
+article {
+	background-color:#FFFBCC;
+	border: 2px solid red;
+	padding: 20px;
+	margin-bottom: 10px;
+}
+
+article footer {
+	text-align:right;
+}
+/*display:block; nghĩa là hiển thị cái tag đó trên cả 1 dòng, ko cho chèn thêm tag khác lên dòng đó nữa
+nhưng với block:inline thì ngược lại... */

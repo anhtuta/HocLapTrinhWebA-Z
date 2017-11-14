@@ -1,0 +1,38 @@
+body {
+	text-align:center;
+}
+
+#box {
+	display:block;
+	width:500px;
+	margin:50px auto;
+	padding:15px;
+	text-align:center;
+	border:2px solid blue;
+	/* background:orange; */
+	background: -webkit-linear-gradient(top,black,white);	/* hoặc dùng: (45deg,black,white) để chỉ rõ bắt đầu từ bao nhiêu độ */
+	/* linear-gradient: gradient theo đường thẳng. radial-gradient: theo vòng tròn */
+	background: -webkit-radial-gradient(center,circle,red 0%, white 50%);	/*tham-số-1 là nơi bắt đầu của gradient, tham-số-2 là hình dạng của gradient, tham-số-3 và 4 là màu của gradient. 0% và 50% là vị trí bắt đầu fade */
+	-webkit-border-radius: 25px;	/*góc nhọn thành tròn hơn */
+	-webkit-box-shadow: rgb(110,110,110) 8px 8px 8px /* inset */;	/*tham-số-1 = shadow-right, tham-số-2 = shadow-bottm. Nếu nó là giá trị âm 
+	thì sẽ trở thành shadow-left hoặc shadow-top. tham-số-3 là độ mờ (blur) tham-số-4=inset nghĩa là shadow ở bên trong cái box này, nếu
+	ko có nó thì shadow ở bên ngoài */
+	-webkit-box-shadow: rgba(110,110,110,.7) 8px 8px 8px;	/*tham số a trong rgba là alpha. giá trị giảm độ dark của shadow */
+	/* outline: 7px solid red; */	
+	-webkit-transform: scale(1.5);	/*tăng kích thước mọi thứ lên 1.5 lần */
+	-webkit-transform: scale(1,3);	/*theo chiều ngang là 1, chiều dọc là 3 */
+	-webkit-transform: scale(-1,3);		/*đảo ngược theo trục ngang, giống như nhìn qua gương */
+	-webkit-transform: rotate(45deg);	/*xoay 45 độ */
+	-webkit-transform: skew(30deg);		/*nghiêng 30 độ */
+	-webkit-transform: rotate(45deg);	/*xoay 45 độ */
+	-webkit-transform: translate(150px, 300px);		/*150px down, 300px right */
+	-webkit-transform: rotate(45deg);	/*xoay 45 độ */
+	-webkit-transform: translate(100px, 100px) rotate(30deg) scale(.8);		/*mutil-transform */
+	
+}
+
+#text {
+	font: bold 30px Century Gothic;
+	background:yellow;
+	text-shadow: rgb(110,110,110) 4px 4px 5px;
+}

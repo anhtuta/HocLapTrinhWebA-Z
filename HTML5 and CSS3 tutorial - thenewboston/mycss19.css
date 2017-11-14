@@ -1,0 +1,43 @@
+#mommy {
+	border:2px solid blue;
+	display: -webkit-box;
+	-webkit-box-orient:horizontal;
+	/* -webkit-box-direction:reverse; :reverse order of components in this mommy */
+	width:700px;	/*Nếu thay bằng: -webkit-box-flex:1; thì nó có thể kéo dãn */
+	-webkit-box-pack:center;	/*cho các con của nó ở trung tâm, có thể chuyển thành -webkit-box-pack:end */
+	height:300px;
+	-webkit-box-align:center; /* -webkit-box-align:schetch : nếu các con của nó ko ghi rõ kích thước thì nó tự duỗi ra bằng với kích thước của cha */
+}
+
+#kid1 {
+	border: 2px solid red;
+	background: green;
+	padding:20px;
+	margin:10px;
+	-webkit-box-flex: 1;
+	height:100px;
+}
+#kid2{
+	border: 2px solid red;
+	background: yellow;
+	padding:20px;
+	margin:10px;
+	-webkit-box-flex: 2;	/*chiếm 2 spaces */
+	height:100px;
+}
+#kid3 {
+	border: 2px solid red;
+	background: red;
+	padding:20px;
+	margin:10px;
+	-webkit-box-flex: 3;
+	height:100px;
+}
+#kid4 {
+	border: 2px solid red;
+	background: orange;
+	padding:20px;
+	margin:10px;
+	-webkit-box-flex: 4;
+	height:100px;
+}

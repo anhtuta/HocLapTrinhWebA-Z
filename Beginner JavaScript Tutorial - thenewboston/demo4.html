@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+	<head>
+		<title>JavaScript tutorial</title>
+	</head>
+	
+	<body>
+		<script type="text/javascript">
+			function Student() {
+				this.name = "att";
+				this.age = 0;
+				this.addr = "hanoi";
+				
+				this.getName = layGiaTriTen;
+				//this.getAge() { return this.age; }
+				this.getInfo = getInformation;
+				
+				this.setName = setName;
+				this.setAge = setAge;
+				this.setAddr = setAddr;
+				
+				function layGiaTriTen() {
+					alert(this.name);
+				}
+				function getInformation() {
+					document.write(this.name + ' - '+this.age+' - '+this.addr);
+				}
+				
+				function setName(n) {this.name = n;}
+				function setAddr(ad) {this.addr = ad;}
+				function setAge(ag) {this.age = ag;}
+			}
+			
+			
+			var st1 = new Student();	//CHÚ Ý; ko thể dùng: Student st1 = new Student();
+			st1.setName('Anhtu');
+			st1.setAge(23);
+			st1.setAddr('Ha Noi');
+			st1.getInfo();
+			
+			////////////////////
+			function btnClick() {
+				alert('today is cool');
+			}
+			
+		</script>
+		
+		<button onclick="btnClick">Click me!</button>
+	</body>
+</html>
+
+<!-- tât c? nh?ng j có trong tag html là trang web c?a b?n -->

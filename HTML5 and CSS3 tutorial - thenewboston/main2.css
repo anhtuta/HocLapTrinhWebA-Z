@@ -1,0 +1,10 @@
+p:nth-child(2) {color:blue;}
+p:nth-child(odd) {color:red;}	
+p:nth-child(even) {
+	background-color:cyan;
+	color:green;
+}
+
+<!-- con thứ 2 có màu blue -->
+<!-- tất cả paragraph lẻ có màu red. -->
+<!-- even là chẵn

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+	<head>
+		<title>This is the title</title>
+		<link rel="stylesheet" type="text/css" href="mycss.css"/>
+		<style type="text/css">
+			h1 {
+				color:red;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>Sad story</h1>
+		<p>What the hell are you talking about? HTML là nội dung trang web, còn CSS dùng để tạo giao diện cho trang web</p>
+		<p>I'm talking about the one who died yesterday. Javascript: tạo event cho trang web (ví dụ click chuột, move chuột vào...). </p>
+		<p>And he's my close friend.Framework mới và mạnh nhất của JS bây giờ là jQuery</p>
+		
+	</body>
+</html>
+
+<!-- tât cả những j có trong tag html là trang web của bạn -->
+<!-- rel = relationship or relative or something :v, 
+nếu giả sử h1 đc style ở file .css thì trong file này style lại thằng h1 tức là ghi đè, do đó style thằng h1 ở trong file này đc áp dụng cho h1
+(chú ý là chỉ ghi đè những j ghi trong style, còn nếu ko ghi đè, ví dụ font-family thì h1 lấy font-family bên file .css)
+
+chú ý:
+<link rel="stylesheet" type="text/css" href="mycss.css"/>
+<style type="text/css">
+	h1 {
+		color:red;
+	}
+</style>
+do thẻ link ở trước thẻ style nên thẻ style sẽ ghi đè thẻ link
+nếu thẻ link ở sau thẻ style thì ngược lại
+vậy tóm lại, thằng ghi đè phải xuất hiện sau

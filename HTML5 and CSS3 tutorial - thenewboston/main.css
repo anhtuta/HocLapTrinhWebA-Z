@@ -1,0 +1,13 @@
+p[name] {color:blue;}
+p[name="anhtu"] {color:red;}
+p[name^="fox"] {
+	background-color:green;
+	color:yellow;
+}
+p[name$="fox"] {
+	background-color:blue;
+	color:white;
+}
+p[name*="att"] {
+	color:pink;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+	<head>
+		<title>This is the title</title>
+		<style>
+			#gender {
+				background-color:cyan;
+				color:blue;
+				font-family:Comic Sans MS, serif;
+				margin-bottom:20px;
+			}
+			textarea {
+				font-family: Serif;
+			}
+			.select {
+				padding-right: 10px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<form action="dosomething.html" method="post">
+			Username: <input type="text" name="user" size="10px" maxlength="5" value="default"/>
+			Password: <input type="password" name="pass" size="10px"/><br/><br/>
+			<span id="gender">
+				Male <input type="radio" name="sex" value="male"/>
+				Female <input type="radio" name="sex" value="female"/>
+				Gay <input type="radio" name="sex" value="gay" />
+				Lesbian <input type="radio" name="sex" value="les" /> <br/>
+			</span>
+			<p>Select the food that you would like to order!</p>
+			Bacon <input type="checkbox" name="food" value="bacon"/>
+			Ham <input type="checkbox" name="food" value="ham"/>
+			Tuna <input type="checkbox" name="food" value="tuna"/>
+			Soda pop <input type="checkbox" name="food" value="soda"/>
+			
+			<br/>
+			<p>What do you want to do today?</p>
+			<select class="select" name="activity">
+				<option value="play">Play the guitar</option>
+				<option value="hair">comb your hair</option>
+				<option value="soccer">play soccer</option>
+				<option value="games">Play games</option>
+				<option value="movies">watch movies</option>
+				
+			</select>
+			
+			<br/><p>Tell me about yourself</p><br/>
+			<textarea name="bio" rows="8" cols="40">type something here...</textarea>
+			
+			<br/><p>Now submit a file</p>
+			<input type="file" name="myfile"/><br/>
+			</br>
+			<input type="submit" value="submit" />	<!-- Gọi tới file dosomething.html nếu ấn submit -->
+		</form>
+	</body>
+</html>
+
+<!-- tât cả những j có trong tag html là trang web của bạn
+span ko có margin-top à?

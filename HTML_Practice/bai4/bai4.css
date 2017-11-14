@@ -1,0 +1,218 @@
+* {
+	margin:0;
+	padding:0;
+	border:0;
+}
+body {
+	background: #f0f0f0;
+	font: 14px Comic Sans MS, Arial;
+	color: #555;
+	margin: 0;
+}
+h1 {
+	text-align: center;
+	font-size: 26px;
+	line-height: 120%;
+	padding: 5px 0px;
+}
+h2 {
+	text-align: center;
+	font-size: 22px;
+	line-height: 200%;
+}
+h3 {
+	text-align: center;
+	font-size: 18px;
+	line-height: 150%;
+}
+p {
+	padding: 1%;
+}
+a {
+	color: green;
+	text-decoration: none;
+}
+a:hover {
+	color: #00ee11;
+	text-decoration: underline;
+}
+
+header {
+	background: #405580;
+	width: 100%;
+	height: 79px;
+	opacity: 0.8;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+}
+.menu-icon {
+	display: hidden;
+	width: 40px;
+	height: 40px;
+	background: url(http://www.w3newbie.com/wp-content/uploads/icon.png) center;
+}
+nav {
+	float: right;
+	padding: 25px 20px 20px 0;
+}
+nav ul {
+	list-style: none;
+}
+nav ul li{
+	display: inline-block;
+	float: left;
+	padding: 10px;
+}
+nav ul li a {
+	color: white;
+	font-size: 19px;
+}
+nav ul li a:hover {
+	color: white;
+	text-decoration: underline;
+}
+.current {
+	text-decoration: underline;
+}
+#menu-icon {
+	display: hidden;
+	width: 40px;
+	height: 40px;
+	background: url(http://www.w3newbie.com/wp-content/uploads/icon.png) center;
+}
+a:hover#menu-icon {
+	border-radius: 4px 4px 0 0;
+}
+
+.images_slides {
+	margin: 0 auto;/*110px 0 40px 0;*/
+	max-width: 960px;
+}
+.content_slides {
+	margin: 80px 0 40px 0;
+	max-width: 1140px;
+}
+
+section {
+	float: left;
+	width: 31%;
+	margin: 1%;
+	text-align: center;
+}
+.clear_float {
+	clear: both;
+}
+
+article {
+	float: left;
+	width: 69%;
+	height: auto;
+	margin: 30px 0 0 0;		/*to horizontally center the element within its container */
+}
+article img {
+	max-width: 32%;
+}
+aside {
+	float: right;
+	width: 24%;
+	height: auto;
+	margin: 30px auto;
+	padding-right: 3%;
+}
+aside h2 {
+	padding: 2%;
+	text-align: left;
+	color: white;
+	background: #405580;
+}
+aside ul {
+	list-style: none;
+}
+aside ul li {
+	border-bottom: 1px solid green;
+	padding: 2%;
+}
+
+hr {
+	color: black;
+	margin-top: 40px;
+}
+.first {
+	background-color: #405580;
+	overflow: hidden;
+	margin-top: 20px;
+}
+.first p, .first h3 {
+	margin-bottom: 20px;
+	color: white;
+}
+.first ul {
+	list-style: none;
+}
+.first ul li {
+	display: inline;
+}
+.first ul li img{
+	height: 50px;
+}
+
+.second {
+	color: white;
+	text-align: center;
+	border-top: 2px solid gray;
+	background: #333333;
+	opacity: 0.8;
+	padding: 1%;
+}
+
+/*-----------Media Queries !!!-------------*/
+@media screen and (max-width: 470px) {
+	body {
+		position: absolute;
+	}
+}
+@media screen and (max-width: 740px) {
+	body {
+		position: absolute;
+	}
+	#menu-icon {
+		display: inline-block;
+	}
+	nav ul, nav:active ul {
+		display: none;
+		position: absolute;
+		padding: 20px;
+		background: #405580;
+		border: 1px solid #FFF;
+		right: 20px;
+		top: 60px;
+		width: 50%;
+		border-radius: 2px 0 2px 2px;
+	}
+	nav li {
+		text-align: center;
+		width: 100%;
+	}
+	nav:hover ul{
+		display: block;
+	}
+	
+	section {
+		float: left;
+		width: 100%;
+	}
+	aside {
+		float: left;
+		width: 100%;
+	}
+	article {
+		float: left;
+		width: 100%;
+	}
+	article img {
+		max-width: 100%;
+	}
+}
+

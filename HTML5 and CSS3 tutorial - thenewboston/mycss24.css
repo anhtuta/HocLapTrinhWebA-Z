@@ -1,0 +1,47 @@
+body {
+	text-align:center;
+}
+
+#box {
+	display:block;
+	margin: 150px auto;
+	color:#ffffff;
+	-webkit-border-radius: 10px;
+	opacity: 0.1;	/*giống opacity trong photoshop, opacity nhỏ thì hình mờ, opacity lớn thì hình đậm. opacity-max = 1 */
+	background:red;
+	width:220px;
+	height:100px;
+	-webkit-transition: -webkit-transform 2s, opacity 2s, background 2s, width 2s, height 2s;	/*how long these animation will last */
+	
+}
+
+#box:hover {		/*tạo sự kiện khi di chuột vào box */
+	-webkit-transform: rotate(360deg);
+	opacity: 1;
+	background: #1ec7e6;
+	width:400px;
+	height:110px;
+	
+}
+
+#text {
+	font: bold 20px Century Gothic;
+	text-shadow: rgb(110,110,110) 4px 4px 5px;
+}
+
+.btLogin {
+	display:block;
+	margin: 150px auto;
+	color:#ffffff;
+	-webkit-border-radius: 10px;
+	opacity: 0.1;	/*giống opacity trong photoshop, opacity nhỏ thì hình mờ, opacity lớn thì hình đậm. opacity-max = 1 */
+	background:red;
+	width:220px;
+	height:100px;
+	-webkit-transition: -webkit-transform 1s, opacity 1s, background 1s, width 1s, height 1s;	/*how long these animation will last */
+}
+
+.btLogin:hover {		/*tạo sự kiện khi di chuột vào box */
+	opacity: 1;
+	background: #1ec7e6;
+}
