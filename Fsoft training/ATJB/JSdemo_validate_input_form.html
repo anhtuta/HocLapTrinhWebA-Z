@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script>
+			function validPhone() {
+				var phone = window.document.myform1.txtPhone.value;		//lấy giá trị của tag thông qua thuộc tính name của tag
+				for(i = 0; i < phone.length; i++) {
+					if(phone.charAt(i) < "0" || phone.charAt(i) > "9") {
+						alert("Please enter only number!");
+						return false;
+					}
+				}
+				if(phone.length < 10) {
+					alert("Please enter your 10-digit phone number!");
+					return false;
+				}
+				return true;
+			}
+			
+		</script>
+	</head>
+	<body>
+		<form action="valid-value.html" name="myform1" onSubmit="javascript: return validPhone();">		<!-- Nếu validPhone() return false thì sẽ ko thực hiện action của form -->
+			Enter your phone number: <input type="text" name="txtPhone" required/>
+			<input type="submit" value="Submit!"/>
+		</form><br/><br/>
+		
+	</body>
+</html>

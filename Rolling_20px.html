@@ -1,0 +1,54 @@
+<div class="lds-css ng-scope">
+  <div style="width:100%;height:100%" class="lds-rolling-20">
+    <div></div>
+  </div>
+<style type="text/css">
+@keyframes lds-rolling-20 {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@-webkit-keyframes lds-rolling-20 {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.lds-rolling-20 {
+  position: relative;
+}
+.lds-rolling-20 div,
+.lds-rolling-20 div:after {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border: 20px solid #000000;
+  border-top-color: transparent;
+  border-radius: 50%;
+}
+.lds-rolling-20 div {
+  -webkit-animation: lds-rolling-20 1s linear infinite;
+  animation: lds-rolling-20 1s linear infinite;
+  top: 100px;
+  left: 100px;
+}
+.lds-rolling-20 div:after {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.lds-rolling-20 {
+  width: 20px !important;
+  height: 20px !important;
+  -webkit-transform: translate(-10px, -10px) scale(0.1) translate(10px, 10px);
+  transform: translate(-10px, -10px) scale(0.1) translate(10px, 10px);
+}
+</style></div>

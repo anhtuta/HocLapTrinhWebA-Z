@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<p>Click the button to add a new row at the first position of the table and then add cells and content.</p>
+
+
+<button onclick="createNewRow()">Create row</button>
+<button onclick="deleteRow()">Delete row</button><br><br>
+
+<table id="myTable">
+  <tr>
+    <td>Row1 cell1</td>
+    <td>Row1 cell2</td>
+  </tr>
+  <tr>
+    <td>Row2 cell1</td>
+    <td>Row2 cell2</td>
+  </tr>
+  <tr>
+    <td>Row3 cell1</td>
+    <td>Row3 cell2</td>
+  </tr>
+</table>
+<br>
+
+<script>
+	var i = 1;
+	function createNewRow() {
+		
+		var table = document.getElementById("myTable");
+		var row = table.insertRow(-1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);	// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element
+		cell1.innerHTML = "NEW CELL1_" + i;
+		cell2.innerHTML = "NEW CELL2_" + i;
+		i++;
+	}
+
+	function deleteRow() {
+		document.getElementById("myTable").deleteRow(-1);
+	}
+</script>
+
+</body>
+</html>

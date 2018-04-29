@@ -1,0 +1,30 @@
+<style>
+	.wrapper {
+		height: 20px;
+		border: 1px solid red;
+	}
+	.progress_bar {
+		height: 20px;
+		background: red;
+		/* width: 40%; */
+	}
+</style>
+<div class="wrapper">
+	<div id="progress_bar_id" class="progress_bar"></div>
+</div>
+
+<script>
+	var pb = document.getElementById("progress_bar_id");
+	function sleep(ms) {
+		return new Promise(resolve => setTimeout(resolve, ms));
+	}
+	
+	async function demo2() {
+		for(var i = 0; i <= 100; i++) {
+			pb.style.width = i + "%";
+			await sleep(20);
+		}
+	}
+	
+	demo2();
+</script>

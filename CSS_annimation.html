@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+	div {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		position: relative;
+		
+		/* Chú ý: nếu là Safari thì cần thêm tiền tố -webkit- vào trước mỗi dòng sau */
+		animation-name: example;
+		animation-duration: 4s;
+		animation-iteration-count: infinite;	/* nếu muốn 3 lần thì nhập: 3; */
+		animation-direction: alternate;	/*  normal - The animation is played as normal (forwards). This is default
+											reverse - The animation is played in reverse direction (backwards)
+											alternate - The animation is played forwards first, then backwards
+											alternate-reverse - The animation is played backwards first, then forwards */
+		
+
+	}
+
+	/* Standard syntax. Nếu là Safari thì cần thêm -webkit- vào trước từ keyframes */
+	@keyframes example {
+		0%   {background-color:red; left:0px; top:0px;}
+		25%  {background-color:yellow; left:200px; top:0px;}
+		50%  {background-color:blue; left:200px; top:200px;}
+		75%  {background-color:green; left:0px; top:200px;}
+		100% {background-color:red; left:0px; top:0px;}
+	}
+</style>
+</head>
+<body>
+
+<p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+
+<div></div>
+<p>This is p tag</p>
+
+</body>
+</html>

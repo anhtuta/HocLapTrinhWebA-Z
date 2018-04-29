@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			// Bước 1: Tạo hàm closure
+            function showMessage(message) {
+				return function() {
+					console.log("message = " + message);
+				}
+			}
+			
+			// Bước 2: khởi tạo hàm closure
+			var msgFuc = showMessage("Hello guys!");
+			
+			// Bước 3: Chạy hàm closure
+			msgFuc();
+			
+			//============= Closure có tham số
+			function showMessage2(message) {
+				return function(time) {
+					for(var i=1; i<=time; i++) console.log("i = " + i + ", message = " + message);
+				}
+			}
+			var msgFuc2 = showMessage2("Today is warm");
+			msgFuc2(5);
+			
+			function showMessage3(message) {
+				return {
+					demo : function(time) {
+						for(var i=1; i<=time; i++) console.log("i = " + i + ", message = " + message);
+					}
+				}
+			}
+			var msgFuc3 = showMessage3("Today is warm");
+			msgFuc3.demo(2);
+			
+			//============= Closure thay đổi giá trị biến toàn cục lẫn cục bộ;
+			//============= Return nhiều Closure Function
+			// Bước 1: Tạo hàm closure
+			function Student()
+			{
+				var name = '';
+				var age = '';
+			 
+				return {
+					set : function(in_name, in_age){
+						name = in_name;
+						age = in_age;
+					},
+					getName : function(){
+						return name;
+					},
+					getAge : function(){
+						return age;
+					}
+				};
+			}
+			 
+			// Bước 2: khởi tạo hàm closure
+			var studentObj = Student();
+			 
+			// Bước 3: Chạy hàm closure
+			studentObj.set('What the f*ck???', '27');
+			console.log(studentObj.getName());
+			console.log(studentObj.getAge());
+			
+			//============= Độ ưu tiên các biến
+			var message4 = 'Biên toàn cục';
+			function showMessage4()
+			{
+				var message4 = 'Biến cục bộ của hàm cha';
+				return function(){
+					console.log(message4);
+				};
+			}
+			 
+			// Bước 2: khởi tạo hàm closure
+			var messageFunc4 = showMessage4();
+			 
+			// Bước 3: Chạy hàm closure
+			messageFunc4();
+		</script>
+	</head>
+	<body>
+		<h3>Closure function trong Javascript</h3>
+	</body>
+</html>

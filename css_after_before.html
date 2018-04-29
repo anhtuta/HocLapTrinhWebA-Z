@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+			.title {
+				border: 5px solid;
+			}
+			.title::before {
+				content: "Hello! ";
+				border: 5px solid #5495ff;
+			}
+            .title::after{
+                content : " freetuts.net";
+				border: 5px solid #20e547;
+            }
+			
+			.hotel_name {
+				background: #3879d9;
+				color: #fff;
+				padding: 10px;
+				display: inline-block;
+				border-radius: 3px;
+				position: relative;
+			}
+			.hotel_name::after {
+				content: "Đây là after";
+				position: absolute;
+				border: 10px solid #00800000;
+				top: 38px;
+				right: 45%;
+				height: 0;
+				width: 0;
+				/* border-bottom-color: #fff; */
+				border-top-color: #3879d9;
+			}
+			
+			.hotel_name2 {
+				background: #3879d9;
+				color: #fff;
+				padding: 10px;
+				display: inline-block;
+				border-radius: 3px;
+				position: relative;
+			}
+			.hotel_name2::after {
+				content: "after";
+				position: absolute;
+				border: 10px solid #00800000;
+				top: -20px;
+				right: 45%;
+				height: 0;
+				width: 0;
+				border-bottom-color: #3879d9;
+						}
+        </style>
+
+    </head>
+    <body style="background: #c2c2c2;">
+        <div class="title">Chào mừng bạn đến với</div>
+		<ul>
+			<li>Lưu ý 1: Nội dung mà bạn thêm vào bằng thuộc tính after hoặc before sẽ không thể dùng chuột bôi đen và copy được.</li>
+
+			<li>Lưu ý 2: Ta có thể coi After và Before giống như hai thẻ HTML bình thường nên bạn có thể sử dụng hầu hết các thuộc tính CSS trên chúng.</li>
+			
+			<li>For this selector to work in IE8, a DOCTYPE must be declared, and you must use the old, single-colon CSS2 syntax (:after instead of ::after).</li>
+		</ul>
+		<h3>Demo 1 cái khác xem sao</h3>
+		<div class="hotel_name">Bach Khoa hotel</div>
+		
+		<div class="hotel_name2">Xay Dung hotel</div>
+		
+    </body>
+</html>

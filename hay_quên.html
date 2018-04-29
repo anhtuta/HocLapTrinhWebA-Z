@@ -1,0 +1,105 @@
+<style>
+	body {
+		font-family: -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	}
+	h1 {
+		color: red;
+	}
+	li {
+		color: #5495ff;
+		font-weight: bold;
+		margin-top: 30px;
+	}
+	#wrapper {
+	    margin: 10px auto;
+		border: 2px solid;
+	}
+	#btn_click {
+		background: #5495ff;
+		color: #fff;
+		padding: 5px;
+		cursor: pointer;
+		/* display: inline-block; */
+		width: 100px;
+		text-align: center;
+		margin: auto;
+	}
+	
+	#wrapper2 {
+	    margin: 10px auto;
+		border: 2px solid;
+	}
+	#btn_click2 {
+		background: #5495ff;
+		color: #fff;
+		padding: 5px;
+		cursor: pointer;
+		display: inline-block;
+		margin: auto;
+	}
+	
+		.form_wrapper {
+		margin-top: 20px;
+	}
+
+	.form_search {
+		position: relative;
+		height: 50px;
+		padding-right: 77px;
+	}
+
+	.form_search .hotel_name {
+		width: 100%;
+		padding: 5px;
+		border: 1px solid #b9b9b9;
+		border-radius: 2px;
+		padding-left: 30px;
+		font-weight: normal;
+	}
+
+	.form_search .btn_submit {
+		position: absolute;
+		padding: 5px;
+		top: 0;
+		right: 0;
+		width: 72px;
+		border-radius: 2px;
+		background: #5495ff;
+		border: 1px solid #5495ff;
+		color: #fff;
+		font-weight: bold;
+	}
+
+</style>
+
+<h1>Các bài toán hay gặp mà hay quên</h1>
+<ul>
+	<li>Căn giữa cho thẻ div</li>
+	<div id="wrapper">
+		<div id="btn_click">Click here!</div>
+	</div>
+
+	<h3>Nếu để thẻ div có style: display: inline-block thì KHÔNG THỂ căn ra giữa màn hình bằng margin: auto được nữa!</h3>
+	<div id="wrapper2">
+		<div id="btn_click2">Click here 2!</div>
+	</div>
+
+	<li>ô input và button bên phải</li>
+	<div class="form_wrapper">
+		<div>Thử resize browser xem vị trí của button và input nó ntn</div>
+		<form class="form_search">
+			<input type="text" class="hotel_name">
+			<input type="submit" class="btn_submit" value="Tìm">
+		</form>
+	</div>
+	
+	<li>Bất đồng bộ trong JS (mở inspect để xem)</li>
+	<script>
+		for (i = 0; i < 5; i++) {
+			console.log("[outer] i = " + i);
+			setTimeout(function() {
+				console.log("i = " + i + " (i luôn = 5, vì lệnh này chỉ chạy sau khi các lệnh đồng bộ thực hiện xong hết, nghĩa là chỉ chạy khi i tăng hết tới 5)");
+			}, i*500 );
+		}
+	</script>
+</ul>

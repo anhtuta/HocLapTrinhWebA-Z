@@ -1,0 +1,42 @@
+<html>
+	<body>
+		<h2>Chú ý: cần chạy trên 1 host, ví dụ: localhost (xài xampp)</h2>
+		<script type="text/javascript">
+			<!--
+			var aProperty;
+			document.write("Navigator Object Properties<br /> ");
+
+			for (aProperty in navigator) {
+				document.write(aProperty);
+				document.write("<br />");
+			}
+			document.write ("Exiting from the loop!");
+			//-->
+		</script>
+
+		<p>Set the variable to different object and then try...</p>
+
+		<h2>Cookie demo</h2>
+		<script>
+			function writeCookie() {
+				name = escape("Anhtu ta 95");
+				document.cookie = "name=" + name + ";age=23;";
+				document.write("name = " + name + "<br>");
+			}
+			writeCookie();
+			
+			function printAllCookies() {
+				var allCoolkes = document.cookie;
+				document.write("All cookies: " + allCoolkes + "<br />");	// ko hien thi dc
+				cookiearray = allCoolkes.split(';');
+				for(var i = 0; i < cookiearray.length; i++) {
+					var name = cookiearray[i].split('=')[0];
+					var value = cookiearray[i].split('=')[1];
+					document.write ("Key is : " + name + " and Value is : " + value + "<br>");
+				}
+			}
+			
+			printAllCookies();
+		</script>
+	</body>
+</html>

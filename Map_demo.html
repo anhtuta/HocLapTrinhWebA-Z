@@ -1,0 +1,66 @@
+<html>
+	<script>
+		var myMap = new Map();
+
+		var keyString = 'a string',
+			keyObj = {},
+			keyFunc = function() {};
+
+		// setting the values
+		myMap.set(keyString, "value associated with 'a string'");
+		myMap.set(keyObj, 'value associated with keyObj');
+		myMap.set(keyFunc, 'value associated with keyFunc');
+		myMap.set("myName", "Anh tu");
+
+		myMap.size; // 3
+
+		// getting the values
+		console.log(myMap.get(keyString));    	// "value associated with 'a string'"
+		console.log(myMap.get(keyObj));       	// "value associated with keyObj"
+		console.log(myMap.get(keyFunc));      	// "value associated with keyFunc"
+
+		console.log(myMap.get('a string'));   	// "value associated with 'a string'"
+												// because keyString === 'a string'
+		console.log(myMap.get({}));         	// undefined, because keyObj !== {}
+		console.log(myMap.get(function() {}));	// undefined, because keyFunc !== function () {}
+		console.log(myMap.get("abcdef"));		// undefined
+		if(myMap.get("abcdef") == undefined) {
+			console.log("Ko tồn tại key abcdef");
+		}
+		myMap.set("abcdef", "");
+		console.log(myMap.get("abcdef"));
+		
+		myMap.delete("myName");
+		console.log("After delete a element");
+		console.log(myMap.get("myName"));
+		
+		//=================== Set demo ====================//
+		var stSet = new Set();
+		stSet.add("Anhtu");
+		stSet.add("Huy");
+		stSet.add("Toan");
+		stSet.add("Nguyen");
+		console.log(stSet);
+		
+		var stSet2 = new Set();
+		stSet2.add("hust");
+		stSet2.add("soict");
+		stSet2.add("set");
+		console.log(stSet2);
+		
+		var map2 = new Map();
+		map2.set("student", stSet);
+		map2.set("faculty", stSet2);
+		console.log(map2);
+		
+		map2.set("faculty", map2.get("faculty").add("TTUD"));
+		map2.set("faculty", map2.get("faculty").add("set"));
+		console.log(map2);
+		
+		console.log(typeof map2);
+		
+		var a = true;
+		console.log(typeof a);
+	</script>
+	<h3>Demo map in JS</h3>
+</html>

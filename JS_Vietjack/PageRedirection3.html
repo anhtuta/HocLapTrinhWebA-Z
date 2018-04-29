@@ -1,0 +1,16 @@
+<html>
+	<body>
+		<script type="text/javascript">
+            var browsername = navigator.appName;
+            if( browsername == "Netscape" ) {
+				//Chrome, Firefox, IE, Opera cũng thuộc dạng này
+				window.location = "https://www.google.com/search?q=what+is+Netscape";
+				alert("browsername = " + browsername);
+            } else if ( browsername =="Microsoft Internet Explorer") {
+				window.location = "https://www.google.com/search?q=what+is+Internet+Explorer";
+            } else {
+				window.location = "https://www.google.com/search?q=what+is+"+browsername;
+            }
+		</script>
+	</body>
+</html>
