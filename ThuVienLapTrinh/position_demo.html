@@ -1,0 +1,76 @@
+<style>
+	.mytable {
+		border-collapse: collapse;
+	}
+	.mytable td {
+		padding: 5px;
+	}
+
+	.pos-rel {
+		position: relative;
+		border: 5px solid red;
+		padding: 10px
+	}
+
+	.pos-abs {
+		position: absolute;
+		border: 5px solid blue;
+		padding: 10px
+	}
+</style>
+
+<table class="mytable" border="1">
+	<tr>
+		<th style="width:14%">Value</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>static</td>
+		<td>Default value. Elements render in order, as they appear in the document flow</td>
+	</tr>
+	<tr>
+		<td>absolute</td>
+		<td>The element is positioned relative to its first positioned (not static) ancestor element. 
+			Lần trước đã <b>hiểu sai</b> phần này (thằng này sẽ có position tương đối so với thằng cha relative đầu tiên - <b>SAI!</b>)<br>
+			Hiểu đúng phải là: phần tử có position = absolute thì sẽ có vị trí tương đối so với thằng cha đầu tiên mà
+			có thuộc tính position (thằng cha có thể có: position = relative|absolute|..., trừ trường hợp thằng cha là:
+			position: static) 
+		</td>
+	</tr>
+	<tr>
+		<td>fixed</td>
+		<td>The element is positioned relative to the browser window</td>
+	</tr>
+	<tr>
+		<td>relative</td>
+		<td>The element is positioned relative to its normal position, so &quot;left:20px&quot; adds 20 pixels to the element's LEFT
+			position: có vị trí tương đối so với CHÍNH NÓ khi mà ko có position</td>
+	</tr>
+	<tr>
+		<td>sticky</td>
+		<td>The element is positioned based on the user's scroll position
+			<p>A sticky element toggles between
+				<code class="w3-codespan">relative</code> and
+				<code class="w3-codespan">fixed</code>, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport -
+				then it "sticks" in place (like position:fixed).</p>
+			<strong>Note:</strong> Not supported in IE/Edge 15 or earlier. Supported in Safari from version 6.1 with a -webkit- prefix.</td>
+	</tr>
+	<tr>
+		<td>initial</td>
+		<td>Sets this property to its default value.</td>
+	</tr>
+	<tr>
+		<td>inherit</td>
+		<td>Inherits this property from its parent element.</td>
+	</tr>
+</table>
+
+<div class="pos-rel">
+	<div class="pos-abs" style="top: 0; left: 0">Position: absolute</div>
+</div>
+
+<div class="pos-abs" style="top: 0; left: 100px;">
+	<div class="pos-abs" style="top: 0; left: 0">Position: absolute</div>
+</div>
+
+<div class="pos-rel" style="top: 100px; left: 100px;">Position: relative</div>

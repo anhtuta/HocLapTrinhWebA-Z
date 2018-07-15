@@ -1,0 +1,365 @@
+<html>
+<head>
+<style>
+	body {
+		margin: 10px;
+	}
+	.border-black {
+		border: 1px solid;
+	}
+	.border-left-red {
+		border-left: 4px solid red;
+	}
+	.border-right-red {
+		border-right: 4px solid red;
+	}
+	.border-top-red {
+		border-top: 4px solid red;
+	}
+	.border-bottom-red {
+		border-bottom: 4px solid red;
+	}
+</style>
+<script>
+    const RADIUS = 25;
+	var numOfBalls = 40;
+	var cx = [], cy = [];  //tọa độ của các quả bóng
+	var speedX = [], speedY = [], color = [];	//tốc độ và màu của từng quả bóng
+	var mass = [];	//khối lượng từng quả bóng;
+	var speed_info;
+	
+    var _canvas;
+    var _context;
+    var _reqAnimation;
+    var running;
+    var isRunning = false;
+    var isCheckCollied = [];
+    var snooker_sound = [];
+    var punch = [];
+    var isMute = true;
+    var mouseX, mouseY;
+
+    window.onload = function(){
+		speed_info = document.getElementById("speed_info");
+		_canvas  = document.getElementById("canvas");
+		_context = _canvas.getContext("2d");
+
+		_reqAnimation = window.requestAnimationFrame    ||
+			window.mozRequestAnimationFrame     ||
+			window.webkitRequestAnimationFrame  ||
+			window.msRequestAnimationFrame      ||
+			window.oRequestAnimationFrame;
+
+		if(_reqAnimation) {
+			update();
+			
+			//Hoặc dùng cách dưới cũng đc
+			//_reqAnimation(update);
+		}
+		else alert("Your browser doesn't support requestAnimationFrame.");
+		showSpeed();
+		
+		console.log(speed_info.offsetLeft, speed_info.offsetRight, speed_info.offsetTop, speed_info.offsetBottom);
+    };
+
+	for(var i=0; i<numOfBalls; i++) {
+		cx[i] = cy[i] = 20;
+		speedX[i] = Math.random();
+		speedY[i] = Math.random();
+		color[i] = getRandomColor();
+		mass[i] = 1;
+
+		//ko cần thẻ html <audio> vẫn play được file .mp3
+		snooker_sound[i] = new Audio('snooker_sound.mp3');
+		snooker_sound[i].volume = 1;
+		punch[i] = new Audio('punch.mp3');
+		punch[i].volume = 0.2;
+	}
+
+	/*
+	Chú ý:
+	for (n=0; n<numberofballs; n++) {
+		updatePosition(n)
+	}
+	for (n=0; n<numberofballs; n++) {
+		calculateCollisions(n)
+	}
+	is much better than
+	for (n=0; n<numberofballs; n++) {
+		updatePosition(n)
+		calculateCollisions(n)
+	}
+	*/
+    function update() {
+		updatePosition();
+		calculateCollisions();
+
+		running = _reqAnimation(update);
+		isRunning = true;
+    }
+	
+	function updatePosition() {
+		_context.clearRect(0, 0, _canvas.width, _canvas.height);
+
+		for(var i=0; i<numOfBalls; i++) {
+			_context.fillStyle = color[i];
+			handleBallOutOfBound(i);
+			
+			cx[i] += speedX[i];
+			cy[i] += speedY[i];
+
+			ball_bump_into_wall(i);
+
+			// draw circle
+			_context.beginPath();
+			_context.arc(cx[i], cy[i], RADIUS, 0, Math.PI*2, false);
+			//_context.closePath();
+			_context.fill();
+			_context.font = "13px Arial";
+			_context.fillStyle = "white";
+			_context.fillText(i+1, cx[i] - RADIUS/4, cy[i] + RADIUS/8);
+		}
+	}
+
+	function ball_bump_into_wall(i) {
+		if(cx[i] - RADIUS <= 0 || cx[i] + RADIUS >= _canvas.width) {
+			if(speedX[i] == 0) speedX[i] = 1;
+			speedX[i] = -speedX[i];
+			if(!isMute) punch[i].play();
+		}
+
+		if(cy[i] - RADIUS <= 0 || cy[i] + RADIUS >= _canvas.height) {
+			if(speedY[i] == 0) speedY[i] = 1;
+			speedY[i] = -speedY[i];
+			if(!isMute) punch[i].play();
+		}
+	}
+
+	function handleBallOutOfBound(i) {
+		if(cx[i] - RADIUS < 0) {
+			cx[i] = RADIUS;
+		}
+		if(cx[i] + RADIUS > _canvas.width) {
+			cx[i] = _canvas.width - RADIUS;
+		}
+		if(cy[i] - RADIUS < 0) {
+			cy[i] = RADIUS;
+		}
+		if(cy[i] + RADIUS > _canvas.height) {
+			cy[i] = _canvas.height - RADIUS;
+		}
+	}
+
+	function calculateCollisions() {
+		for(var i=0; i<numOfBalls; i++) {
+			isCheckCollied[i] = false;
+		}
+
+		for (var i=0; i<numOfBalls; i++) {
+			for (var j = 0; j < numOfBalls; j++) {
+				if(isCheckCollied[j]) {
+					//Do bóng[i] đã xét va chạm với bóng j rồi, nên
+					//tới lượt sau, bóng j ko cần xét va chạm với bóng i nữa
+					continue;
+				}
+				if(i==j) continue;
+
+				var distance = Math.sqrt((cx[i]-cx[j])*(cx[i]-cx[j]) + (cy[i]-cy[j])*(cy[i]-cy[j]));
+
+				if(distance <= 2*RADIUS) {	//chú ý: khoảng cách 2 tâm của 2 đường tròn là 2*RADIUS
+					ball_stick_together(i, j, distance);
+					ball_collision(i, j);
+					isCheckCollied[i] = true;
+					if(!isMute) snooker_sound[i].play();
+				}
+			};
+		}
+	}
+
+	// trường hợp 2 quả bóng dính vào nhau
+	function ball_stick_together(i, j, distance) {
+		if(cx[i] > cx[j]) cx[i] = cx[i] + 2*RADIUS - distance;
+		else cx[j] = cx[j] + 2*RADIUS - distance;
+
+		if(cy[i] > cy[j]) cy[i] = cy[i] + 2*RADIUS - distance;
+		else cy[j] = cy[j] + 2*RADIUS - distance;
+	}
+	
+	//Code này tham khảo trên mạng, vì liên quan đến toán khá lằng nhằng
+	//Nguồn: http://jsfiddle.net/inkfood/juzsR/
+	//Kết quả của hàm này: Tính được vận tốc mới sau khi va chạm của 2 quá bóng i và j
+	//Chú ý: i và j va chạm với nhau với vận tốc: speedX[i], speedY[i] và speedX[j], speedY[j]
+	//sau khi va chạm thì vận tốc mới được gán vào 4 biến trên
+	function ball_collision(i, j) {
+		dx = cx[i] - cx[j];
+		dy = cy[i] - cy[j];
+		collisionision_angle = Math.atan2(dy, dx);
+		magnitude_1 = Math.sqrt(speedX[i]*speedX[i] + speedY[i]*speedY[i]);
+		magnitude_2 = Math.sqrt(speedX[j]*speedX[j] + speedY[j]*speedY[j]);
+		direction_1 = Math.atan2(speedY[i], speedX[i]);
+		direction_2 = Math.atan2(speedY[j], speedX[j]);
+		new_xspeed_1 = magnitude_1*Math.cos(direction_1-collisionision_angle);
+		new_yspeed_1 = magnitude_1*Math.sin(direction_1-collisionision_angle);
+		new_xspeed_2 = magnitude_2*Math.cos(direction_2-collisionision_angle);
+		new_yspeed_2 = magnitude_2*Math.sin(direction_2-collisionision_angle);
+		final_xspeed_1 = ((mass[i]-mass[j])*new_xspeed_1+(mass[j]+mass[j])*new_xspeed_2)/(mass[i]+mass[j]);
+		final_xspeed_2 = ((mass[i]+mass[i])*new_xspeed_1+(mass[j]-mass[i])*new_xspeed_2)/(mass[i]+mass[j]);
+		final_yspeed_1 = new_yspeed_1;
+		final_yspeed_2 = new_yspeed_2;
+
+		speedX[i] = Math.cos(collisionision_angle)*final_xspeed_1+Math.cos(collisionision_angle+Math.PI/2)*final_yspeed_1;
+		speedY[i] = Math.sin(collisionision_angle)*final_xspeed_1+Math.sin(collisionision_angle+Math.PI/2)*final_yspeed_1;
+		speedX[j] = Math.cos(collisionision_angle)*final_xspeed_2+Math.cos(collisionision_angle+Math.PI/2)*final_yspeed_2;
+		speedY[j] = Math.sin(collisionision_angle)*final_xspeed_2+Math.sin(collisionision_angle+Math.PI/2)*final_yspeed_2;
+	}
+
+	//Nguồn: https://miskimit.github.io/ballsballsballs/index.html
+	function ball_collision2(i, j) {
+		var theta1 = Math.atan2(speedY[i], speedX[i]);
+		var theta2 = Math.atan2(speedY[j], speedX[j]);
+		var phi = Math.atan2(cy[j] - cy[i], cx[j] - cx[i]);
+		var m1 = mass[i];
+		var m2 = mass[j];
+		var v1 = Math.sqrt(speedX[i]*speedX[i] + speedY[i]*speedY[i]);
+		var v2 = Math.sqrt(speedX[j]*speedX[j] + speedY[j]*speedY[j]);
+
+		var dx1F = (v1 * Math.cos(theta1 - phi) * (m1-m2) + 2*m2*v2*Math.cos(theta2 - phi)) / (m1+m2) * Math.cos(phi) + v1*Math.sin(theta1-phi) * Math.cos(phi+Math.PI/2);
+		var dy1F = (v1 * Math.cos(theta1 - phi) * (m1-m2) + 2*m2*v2*Math.cos(theta2 - phi)) / (m1+m2) * Math.sin(phi) + v1*Math.sin(theta1-phi) * Math.sin(phi+Math.PI/2);
+		var dx2F = (v2 * Math.cos(theta2 - phi) * (m2-m1) + 2*m1*v1*Math.cos(theta1 - phi)) / (m1+m2) * Math.cos(phi) + v2*Math.sin(theta2-phi) * Math.cos(phi+Math.PI/2);
+		var dy2F = (v2 * Math.cos(theta2 - phi) * (m2-m1) + 2*m1*v1*Math.cos(theta1 - phi)) / (m1+m2) * Math.sin(phi) + v2*Math.sin(theta2-phi) * Math.sin(phi+Math.PI/2);
+
+		speedX[i] = dx1F;
+		speedY[i] = dy1F;
+		speedX[j] = dx2F;
+		speedY[j] = dy2F;
+	}
+
+	function speedUp() {
+		for(var i=0; i<numOfBalls; i++) {
+			if(speedX[i] >= 0) speedX[i] += 1;
+			else speedX[i] -= 1;
+			
+			if(speedY >= 0) speedY[i] += 1;
+			else speedY[i] -= 1;
+		}
+		showSpeed();
+	}
+	
+	function speedDown() {
+		//if(speedX == 1) return;	//cant speed down anymore
+		for(var i=0; i<numOfBalls; i++) {
+			if(speedX[i] >= 0) speedX[i] -= 1;
+			else speedX[i] += 1;
+			
+			if(speedY[i] >= 0) speedY[i] -= 1;
+			else speedY[i] += 1;
+		}
+		showSpeed();
+	}
+	
+	function showSpeed() {
+		var kq = "SpeedX: [";
+		for (var i = 0; i < numOfBalls-1; i++) {
+			kq += speedX[i].toFixed(2) + ", ";
+		}
+		kq += speedX[numOfBalls-1].toFixed(2) + "]<br>";
+
+		kq += "SpeedY: [";
+		for (var i = 0; i < numOfBalls-1; i++) {
+			kq += speedY[i].toFixed(2) + ", ";
+		}
+		kq += speedY[numOfBalls-1].toFixed(2) + "]<br>";
+
+		speed_info.innerHTML = kq;
+	}
+	
+	function getRandomColor() {
+		var letters = '0123456789ABCDEF';
+		var color = '#';
+		for (var i = 0; i < 6; i++) {
+			color += letters[Math.floor(Math.random() * 16)];
+		}
+		return color;
+	}
+	function mute(element) {
+		if(isMute == true) {
+			isMute = false;
+			element.innerHTML = "Mute";
+			element.setAttribute("title", "Turn off sound");
+		} else {
+			isMute = true;
+			element.innerHTML = "Sound";
+			element.setAttribute("title", "Turn on sound");
+		}
+	}
+
+	function stopRunning(element) {
+		if(isRunning == true) {
+			cancelAnimationFrame(running);
+			isRunning = false;
+			element.innerHTML = "Start";
+			element.setAttribute("title", "Start running");
+		} else {
+			update();
+			isRunning = true;
+			element.innerHTML = "Stop";
+			element.setAttribute("title", "Stop running");
+		}
+	}
+
+	function isClickToBall(i, mouseX, mouseY) {
+		if(mouseX < cx[i] + RADIUS &&
+			mouseX > cx[i] - RADIUS &&
+			mouseY < cy[i] + RADIUS &&
+			mouseY > cy[i] - RADIUS) {
+			return true;
+		}
+		return false;
+	}
+
+	function catchBall(e) {
+	    var pos = getMousePos(_canvas, e);
+	    mouseX = pos.x;
+	    mouseY = pos.y;
+
+	    for (var i = 0; i < numOfBalls; i++) {
+	    	if(isClickToBall(i, mouseX, mouseY)) {
+	    		stopBall(i);
+	    		break;
+	    	}
+	    }
+	}
+
+	window.addEventListener('mousedown', catchBall, false);
+
+	function getMousePos(canvas, evt) {
+	    var rect = canvas.getBoundingClientRect();
+	    return {
+	        x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
+	        y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+	    };
+	}
+
+	function stopBall(i) {
+		speedX[i] = speedY[i] = 0;
+	}
+
+</script>
+</head>
+<body>
+	<div style="color: #2196F3; font-size: 30px; font-weight: bold; margin-bottom: 10px;">
+		Ball collision demo
+	</div>
+	<div style="text-align: center;margin: 10px;">
+		<canvas id="canvas" class="border-black" width="1000px" height="400px"></canvas>
+	</div>
+	<pre style="padding: 0;height: 55px;margin: 0;">
+		<div id="speed_info" style="position: relative; left: 0;"></div>
+	</pre>
+	<button onclick="speedUp()">Speed up</button>
+	<button onclick="speedDown()">Speed down</button>
+	<button onclick="mute(this)" title="Turn on sound">Sound</button>
+	<button onclick="stopRunning(this)" title="Stop running">Stop</button>
+	<div style="color: red">Click to a ball to stop it</div>
+</body>
+</html>
