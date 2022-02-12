@@ -1,0 +1,26 @@
+<html>
+<head>
+</head>
+
+<body>
+	<button id="btn">Click here</button>
+	<button id="btn2">Click here 2</button>
+</body>
+
+<script>
+	var btn = document.getElementById("btn");
+	btn.addEventListener("click", btnEvent);
+	
+	function btnEvent() {
+		console.log(this);	//chính là thẻ btn ở trên
+	}
+	
+	var btn2 = document.getElementById("btn2");
+	btn2.addEventListener("click", btnEvent2.bind({name: "Anh tu!", age: 23}));
+	
+	function btnEvent2() {
+		console.log(this);	//this chính là object trong hàm bind
+		console.log(this.name, this.age);
+	}
+</script>
+</html>

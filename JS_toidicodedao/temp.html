@@ -1,0 +1,24 @@
+<script type="text/javascript">
+//Khi mới học, ta thấy this cũng khá đơn giản và vô hại. Nếu bạn từng học Java hoặc C#, hẳn bạn cũng nhớ từ khóa this dùng để trỏ tới chính object gọi hàm đó. Trong javascript, từ khóa this cũng đóng vai trò tương tự.
+//Ở dòng code dưới, ta sẽ thấy this trở tới object person, in ra đúng những điều ta muốn
+var person = {
+    firstName: 'Hoang',
+    lastName: 'Pham',
+    showName: function () {
+        console.log(this.firstName + ' ' + this.lastName);
+    }
+};
+person.showName(); //Hoang Pham.
+
+//Một trường hợp khác, khi ta khai báo biến global và hàm global, toàn bộ các biến và hàm đó sẽ nằm trong một object có tên là window. Lúc này, khi ta gọi hàm showName, chính object window là object gọi hàm đó, this trỏ tới chính object window
+var firstName = 'Hoang', lastName = 'Pham';
+// 2 biến này nằm trong object window
+
+function showName() {
+    console.log(this.firstName + ' ' + this.lastName);
+}
+
+window.showName(); // Hoang Pham. this trỏ tới object window
+showName(); //Hoang Pham. Object gọi hàm showName vẫn là object window
+
+</script>

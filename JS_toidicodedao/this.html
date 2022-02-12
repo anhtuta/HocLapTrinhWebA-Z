@@ -1,0 +1,103 @@
+<h3>Open inspect and see!</h3>
+<button id="btn_click">Click here</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript ">
+
+    //Khi mới học, ta thấy this cũng khá đơn giản và vô hại. Nếu bạn từng học Java hoặc C#, hẳn bạn cũng nhớ từ khóa this dùng để trỏ tới chính object gọi hàm đó. Trong javascript, từ khóa this cũng đóng vai trò tương tự.
+    //Ở dòng code dưới, ta sẽ thấy this trở tới object person, in ra đúng những điều ta muốn
+    var person = {
+        firstName: 'Hoang',
+        lastName: 'Pham',
+        showName: function () {
+            console.log(this.firstName + ' ' + this.lastName);
+        }
+    };
+    person.showName(); //Hoang Pham.
+
+    //Một trường hợp khác, khi ta khai báo biến global và hàm global, toàn bộ các biến và hàm đó sẽ nằm trong một object có tên là window. Lúc này, khi ta gọi hàm showName, chính object window là object gọi hàm đó, this trỏ tới chính object window
+    var firstName = 'Hoang', lastName = 'Pham';
+    // 2 biến này nằm trong object window
+
+    function showName() {
+        console.log(this.firstName + ' ' + this.lastName);
+    }
+
+    //Chú ý: chạy trên browser, rồi vào phần inspect để xem, chứ ko chạy trên cmd được! (ko chạy = NodeJS được)
+    window.showName(); // Hoang Pham. this trỏ tới object window
+    showName(); //Hoang Pham. Object gọi hàm showName vẫn là object window
+    
+    /*================== Rắc rối ===============*/
+    //Rắc rối 1 – Hàm được truyền vào như một callback
+    console.log('================ 1 ==============');
+    var person2 = {
+        firstName: 'Hoang',
+        lastName: 'Pham',
+        showName: function () {
+            console.log(this.firstName + ' ' + this.lastName);
+        }
+    };
+
+    //Ở đây this sẽ là object person2
+    person2.showName(); //Hoang Pham.
+
+    //showName truyền vào như callback: this ở đây là chính button ta đã click vào, chứ không còn là object person2
+    $('button').click(person2.showName);    //undefined undefined
+    
+    //Trong trường hợp này, ta có thể sửa lỗi bằng cách sử dụng anonymous function, hoặc dùng hàm bind để xác định tham số this cho hàm truyền vào là được.
+    // Dùng anonymous function
+    $('button').click(function(){
+        person2.showName();
+    });
+    // Dùng bind
+    $('button').click(person.showName.bind(person2)); //this ở đây vẫn là object person2
+
+    //dùng JS thuần cũng tương tự cách trên
+    document.getElementById("btn_click").addEventListener("click", function() {
+        //Ở đây this sẽ là object person2
+        person2.showName(); //Hoang Pham.
+    })
+
+    //Rắc rối 2 – Sử dụng this trong anonymous function (CẦN CHẠY TRÊN CMD)
+    console.log('================ 2.CẦN CHẠY TRÊN CMD file this.js ==============');
+    ///Giả sử, object person có một danh sách bạn bè, bạn muốn viết một function show toàn bộ bạn bè của person đó. Theo lý thuyết, ta sẽ viết như sau:
+    
+    var person3 = {
+        firstName: 'Hoang',
+        lastName: 'Pham',
+        friends: ['Minh', 'Sang', 'Khoa', 'Hoang'],
+
+        //hàm chạy đúng như mong muốn
+        showFriend: function () {
+            for (var i = 0; i < this.friends.length; i++)
+                console.log(this.firstName + ' have a friend named ' + this.friends[i]);
+        },
+
+        //this ở đây lại thành object window, do đó trường firstName bị underfined
+        showFriendThis: function () {
+            this.friends.forEach(function (fr) {
+                console.log(this.firstName + ' have a friend named ' + fr);
+            });
+        },
+
+        //cách giải quyết ta thường dùng là tạo một biến để gán giá trị this vào, và truy xuất tới giá trị đó trong anonymous function.
+        showFriendFixed: function () {
+            var personObj = this; //Gán giá trị this vào biến personObj
+            this.friends.forEach(function (fr) {
+                console.log(personObj.firstName + ' have a friend named ' + fr);
+            });
+        }
+    }
+
+    person3.showFriend(); //Hàm chạy đúng
+    person3.showFriendThis(); // Hàm chạy sai
+    person3.showFriendFixed();  ///OK  
+
+    //Rắc rối 3 – Khi hàm được gán vào một biến (Trường hợp này ít xảy ra)
+    //Đó là trường hợp khi ta gán một hàm vào một biến, sau đó gọi hàm đó. Hàm sẽ không chạy như ta mong muốn, vì object gọi hàm lúc này chính là object window.
+    console.log('================ 3.CẦN CHẠY TRÊN CMD file this.js ==============');
+    var showNameFunc = person2.showName; //Gán function vào biến showNameFunc
+    showNameFunc(); //Chạy sai, ở đây this sẽ là object window
+
+</script>
